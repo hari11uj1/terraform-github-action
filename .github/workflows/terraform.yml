@@ -54,7 +54,7 @@ env:
   ROOT_PATH: "${{github.workspace}}/src/terraform"
 
 jobs:
-  terraform:
+  terraform_plan:
     name: 'Terraform plan'
     runs-on: ubuntu-latest
     environment: production
@@ -89,7 +89,7 @@ jobs:
   terraform_apply:
     name: 'Terraform apply'
     runs-on: ubuntu-latest
-    needs: 'terraform-plan'
+    needs: [terraform_plan]
     environment: prod
 
     # Use the Bash shell regardless whether the GitHub Actions runner is ubuntu-latest, macos-latest, or windows-latest

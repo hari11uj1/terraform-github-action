@@ -6,7 +6,7 @@ terraform {
     }
   }
 }
-# connect to your Snowflake account
+# connect to your Snowflake account kk
 provider "snowflake" {
   account = var.snowflake_account
   # region = "your-region-here" # fill-in only if required

@@ -16,9 +16,9 @@ provider "snowflake" {
 }
 
 
-module "MARKETING_DB_4" {
+module "MARKETING_DB_7" {
   source = "./database01"
-  db_name = "MARKETING_DB_4"
+  db_name = "MARKETING_DB_7"
   db_comment = "a database for marketing"
   db_data_retention_time_in_days = 1
   db_role_grants = {
@@ -38,5 +38,5 @@ module "MARKETING_DB_4" {
 }
 
 output "MARKETING_DB" {
-  value = module.MARKETING_DB_4
+  value = module.MARKETING_DB_7
 }

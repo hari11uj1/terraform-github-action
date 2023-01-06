@@ -16,9 +16,9 @@ provider "snowflake" {
 }
 
 
-module "MARKETING_SMALL_WH_MOD_03" {
+module "MARKETING_SMALL_WH_MOD_04" {
   source            = "./warehouse"
-  warehouse_name    = "MARKETING_SMALL_WH_MOD_03"
+  warehouse_name    = "MARKETING_SMALL_WH_MOD_04"
   warehouse_size    = "SMALL"
   roles = {
     "OWNERSHIP" = ["MARKETING"],
@@ -51,5 +51,5 @@ module "MARKETING_DB_8" {
 }
 
 output "MARKETING_DB" {
-  value = module.MARKETING_DB_7
+  value = module.MARKETING_DB_8
 }

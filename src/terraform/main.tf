@@ -16,9 +16,22 @@ provider "snowflake" {
 }
 
 
-module "MARKETING_DB_7" {
+module "MARKETING_SMALL_WH_MOD_03" {
+  source            = "./warehouse"
+  warehouse_name    = "MARKETING_SMALL_WH_MOD_03"
+  warehouse_size    = "SMALL"
+  roles = {
+    "OWNERSHIP" = ["MARKETING"],
+    "USAGE" = ["MARKETING","SALES"]
+  }
+  with_grant_option = false
+}
+
+
+
+module "MARKETING_DB_8" {
   source = "./database01"
-  db_name = "MARKETING_DB_7"
+  db_name = "MARKETING_DB_8"
   db_comment = "a database for marketing"
   db_data_retention_time_in_days = 1
   db_role_grants = {

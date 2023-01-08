@@ -6,6 +6,16 @@ terraform {
     }
   }
 }
+
+terraform {
+  backend "remote" {
+    organization = "SNOWFLAKE_TERRAFORM_INTIGRATION"
+
+    workspaces {
+      name = "SNOWFLAKE_ENV"
+    }
+  }
+}
 # connect to your Snowflake account kk
 provider "snowflake" {
   account = var.snowflake_account
@@ -16,9 +26,9 @@ provider "snowflake" {
 }
 
 
-module "MARKETING_SMALL_WH_MOD_04" {
+module "MARKETING_SMALL_WH_MOD_05" {
   source            = "./warehouse"
-  warehouse_name    = "MARKETING_SMALL_WH_MOD_04"
+  warehouse_name    = "MARKETING_SMALL_WH_MOD_05"
   warehouse_size    = "SMALL"
   roles = {
     "OWNERSHIP" = ["MARKETING"],
@@ -29,9 +39,9 @@ module "MARKETING_SMALL_WH_MOD_04" {
 
 
 
-module "MARKETING_DB_8" {
+module "MARKETING_DB_9" {
   source = "./database01"
-  db_name = "MARKETING_DB_8"
+  db_name = "MARKETING_DB_9"
   db_comment = "a database for marketing"
   db_data_retention_time_in_days = 1
   db_role_grants = {
@@ -51,5 +61,5 @@ module "MARKETING_DB_8" {
 }
 
 output "MARKETING_DB" {
-  value = module.MARKETING_DB_8
+  value = module.MARKETING_DB_9
 }

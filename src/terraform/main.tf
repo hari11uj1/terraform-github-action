@@ -38,6 +38,10 @@ module "MARKETING_SMALL_WH_MOD_05" {
 }
 
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> parent of 41b41dc (space error was corrected)
 module "MARKETING_SMALL_WH_MOD_testrevert " {
   source            = "./warehouse"
   warehouse_name    = "MARKETING_SMALL_WH_MOD_testrevert"

@@ -49,6 +49,17 @@ module "MARKETING_SMALL_WH_MOD_06" {
 }
 
 
+module "MARKETING_SMALL_WH_MOD_testrevert" {
+  source            = "./warehouse"
+  warehouse_name    = "MARKETING_SMALL_WH_MOD_06"
+  warehouse_size    = "SMALL"
+  roles = {
+    "OWNERSHIP" = ["MARKETING"],
+    "USAGE" = ["MARKETING","SALES"]
+  }
+  with_grant_option = false
+}
+
 
 module "MARKETING_DB_9" {
   source = "./database01"

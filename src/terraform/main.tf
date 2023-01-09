@@ -79,14 +79,14 @@ module "MARKETING_DB_9" {
   db_data_retention_time_in_days = 1
   db_role_grants = {
     "OWNERSHIP" = ["MARKETING"],
-    "USAGE" = ["MARKETING","SALES"]
+    "USAGE" = ["MARKETING","SALES","TESTING"]
   }
-  schemas = ["FACEBOOK","TWITTER"]
+  schemas = ["FACEBOOK","TWITTER","TESTING"]
   schema_grants = {
    "FACEBOOK OWNERSHIP" = {"roles"= ["MARKETING"]},
-   "FACEBOOK USAGE" = {"roles"= ["SALES"]},
+   "FACEBOOK USAGE" = {"roles"= ["SALES","TESTING"]},
    "TWITTER OWNERSHIP" = {"roles"= ["MARKETING"]},
-   "TWITTER USAGE"= {"roles"= ["SALES"]},
+   "TWITTER USAGE"= {"roles"= ["SALES","TESTING"]},
    "TWITTER CREATE FUNCTION"= {"roles"= ["SALES"]},
    "TWITTER CREATE PIPE" = {"roles"= ["SALES"]}
   }

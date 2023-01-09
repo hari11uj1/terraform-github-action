@@ -55,7 +55,7 @@ module "MARKETING_SMALL_WH_MOD_07" {
   warehouse_size    = "SMALL"
   roles = {
     "OWNERSHIP" = ["MARKETING"],
-    "USAGE" = ["MARKETING","SALES"]
+    "USAGE" = ["MARKETING","SALES","TESTING"]
   }
   with_grant_option = false
 }
@@ -66,7 +66,7 @@ module "MARKETING_SMALL_WH_MOD_testrevert" {
   warehouse_size    = "SMALL"
   roles = {
     "OWNERSHIP" = ["MARKETING"],
-    "USAGE" = ["MARKETING","SALES"]
+    "USAGE" = ["MARKETING","SALES","TESTING"]
   }
   with_grant_option = false
 }

@@ -93,6 +93,12 @@ module "MARKETING_DB_9" {
   
 }
 
+
+resource "snowflake_role" "ROLE" {
+  name    = "TESTING"
+  comment = "this role is for test env."
+}
+
 output "MARKETING_DB" {
   value = module.MARKETING_DB_9
 }

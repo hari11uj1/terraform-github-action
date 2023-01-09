@@ -37,6 +37,17 @@ module "MARKETING_SMALL_WH_MOD_05" {
   with_grant_option = false
 }
 
+module "MARKETING_SMALL_WH_MOD_06" {
+  source            = "./warehouse"
+  warehouse_name    = "MARKETING_SMALL_WH_MOD_06"
+  warehouse_size    = "SMALL"
+  roles = {
+    "OWNERSHIP" = ["MARKETING"],
+    "USAGE" = ["MARKETING","SALES"]
+  }
+  with_grant_option = false
+}
+
 
 
 module "MARKETING_DB_9" {

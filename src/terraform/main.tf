@@ -49,9 +49,9 @@ module "MARKETING_SMALL_WH_MOD_06" {
 }
 
 
-module "MARKETING_SMALL_WH_MOD_testrevert" {
+module "MARKETING_SMALL_WH_MOD_testrevert " {
   source            = "./warehouse"
-  warehouse_name    = "MARKETING_SMALL_WH_MOD_06"
+  warehouse_name    = "MARKETING_SMALL_WH_MOD_testrevert"
   warehouse_size    = "SMALL"
   roles = {
     "OWNERSHIP" = ["MARKETING"],

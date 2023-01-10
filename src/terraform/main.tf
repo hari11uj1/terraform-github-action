@@ -111,10 +111,10 @@ module "DB_ADMIN"{
   name = "DB_ADMIN"
   comment = "a read only role for operations"
   role_name = ["SYSADMIN"]
-  users = [
+ /* users = [
     module.ALL_USERS_DEV.USERS.DEV_USER1.name,
     module.ALL_USERS_DEV.USERS.DEV_USER2.name,
-  ]
+  ]*/
 }
 
 module "DATA_ENGG"{
@@ -122,10 +122,10 @@ module "DATA_ENGG"{
   name = "DATA_ENGG"
   comment = "a read only role for operations"
   role_name = [module.DB_ADMIN.name]
-  users = [
+ /* users = [
     module.ALL_USERS_DEV.USERS.DEV_USER1.name,
     module.ALL_USERS_DEV.USERS.DEV_USER2.name,
-  ]
+  ]*/
 }
 
 
@@ -134,10 +134,10 @@ module "DATA_ANALYST"{
   name = "DATA_ANALYST"
   comment = "a read only role for operations"
   role_name = [module.DB_ADMIN.name]
-  users = [
+  /*users = [
     module.ALL_USERS_DEV.USERS.DEV_USER1.name,
     module.ALL_USERS_DEV.USERS.DEV_USER2.name,
-  ]
+  ]*/
 }
 
 module "DATA_LOADER"{
@@ -145,10 +145,10 @@ module "DATA_LOADER"{
   name = "DATA_LOADER"
   comment = "a read only role for operations"
   role_name = [module.DATA_ANALYST.name]
-  users = [
+ /* users = [
     module.ALL_USERS_DEV.USERS.DEV_USER1.name,
     module.ALL_USERS_DEV.USERS.DEV_USER2.name,
-  ]
+  ]*/
 }
 
 module "DATA_VIZ"{
@@ -156,10 +156,10 @@ module "DATA_VIZ"{
   name = "DATA_VIZ"
   comment = "a read only role for operations"
   role_name = [module.DATA_LOADER.name]
-  users = [
+  /*users = [
     module.ALL_USERS_DEV.USERS.DEV_USER1.name,
     module.ALL_USERS_DEV.USERS.DEV_USER2.name,
-  ]
+  ]*/
 }
 
 

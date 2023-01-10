@@ -6,10 +6,10 @@ variable "comment" {
   type = string
 }
 
-/*variable "role_name" {
+variable "role_name" {
   type = list(string)
 }
 
-variable "users" {
+/*variable "users" {
   type = list(string)
 }*/

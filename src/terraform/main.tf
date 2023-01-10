@@ -121,7 +121,7 @@ module "operations"{
   source = "./roles"
   name = "operations"
   comment = "a read only role for operations"
-  role_names = ["ACCOUNTADMIN","OPERATION_DEVELOPER"]
+  role_name = ["ACCOUNTADMIN","OPERATION_DEVELOPER"]
   users = [
     module.ALL_USERS_opp.USERS.opp_USER1.name,
     module.ALL_USERS_opp.USERS.opp_USER2.name,

@@ -140,7 +140,7 @@ module "ALL_USERS_opp" {
   }
 }
 
-output "ALL_USERS_UAT" {
-  value = module.ALL_USERS_UAT
+output "ALL_USERS_opp" {
+  value = module.ALL_USERS_opp
   sensitive = true
 }

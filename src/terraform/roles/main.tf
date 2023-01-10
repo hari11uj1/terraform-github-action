@@ -13,7 +13,7 @@ resource "snowflake_role" "ROLE" {
   comment = var.comment
 }
 
-resource "snowflake_role_grants" "ROLE_GRANTS" {
+/*resource "snowflake_role_grants" "ROLE_GRANTS" {
   role_name = snowflake_role.ROLE.name
   roles = var.role_name
   users = var.users
@@ -21,4 +21,4 @@ resource "snowflake_role_grants" "ROLE_GRANTS" {
 
 output "ROLE" {
   value = snowflake_role.ROLE
-}
+}*/

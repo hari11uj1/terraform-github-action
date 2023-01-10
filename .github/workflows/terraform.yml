@@ -52,6 +52,11 @@ on:
 
 env:
   ROOT_PATH: "${{github.workspace}}/src/terraform"
+  snowflake_account  : ${{secrets.snowflake_account}}
+  snowflake_password : ${{secrets.snowflake_password}}
+  snowflake_role     : ${{secrets.snowflake_role}}
+  snowflake_username : ${{secrets.snowflake_username}}
+
 
 jobs:
   terraform_plan:

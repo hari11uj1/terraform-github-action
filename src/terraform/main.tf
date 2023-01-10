@@ -24,7 +24,7 @@ provider "snowflake" {
   password = var.snowflake_password # do not use, we'll set an env var instead
   role     = var.snowflake_role
 } 
-  
+
 
 module "MARKETING_SMALL_WH_MOD_05" {
   source            = "./warehouse"
@@ -121,7 +121,7 @@ module "operations"{
   source = "./roles"
   name = "operations"
   comment = "a read only role for operations"
-  role_name = ["ACCOUNTADMIN","TESTING"]
+  role_name = ["ACCOUNTADMIN","TESTING","TEST_01"]
   users = [
     module.ALL_USERS_opp.USERS.opp_USER1.name,
     module.ALL_USERS_opp.USERS.opp_USER2.name,

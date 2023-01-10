@@ -1,5 +1,4 @@
-
-snowflake_password  = "${{secrets.snowflake_password}}"
-snowflake_role     = "${{secrets.snowflake_role}}"
-snowflake_username = "${{secrets.snowflake_username}}" 
-snowflake_account  = "${{secrets.snowflake_account}}"
+snowflake_account  = "og99478.central-india.azure"
+snowflake_password = "11Uj1a0318"
+snowflake_role     = "accountadmin"
+snowflake_username = "HARISHKUMAR"

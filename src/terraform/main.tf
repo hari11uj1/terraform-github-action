@@ -117,16 +117,16 @@ output "MARKETING_DB" {
   value = module.MARKETING_DB_9
 }
 
-/*module "operations"{
+module "operations"{
   source = "./roles"
   name = "operations"
   comment = "a read only role for operations"
   role_names = ["ACCOUNTADMIN","OPERATION_DEVELOPER"]
   users = [
-    module.ALL_USERS.USERS.TEST_USER1.name,
-    module.ALL_USERS.USERS.TEST_USER2.name,
+    module.ALL_USERS_opp.USERS.opp_USER1.name,
+    module.ALL_USERS_opp.USERS.opp_USER2.name,
   ]
-}*/
+}
 
 
 module "ALL_USERS_opp" {

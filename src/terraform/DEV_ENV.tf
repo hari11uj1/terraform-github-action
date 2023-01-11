@@ -30,14 +30,14 @@ provider "snowflake" {
 
 # USERS FOR PROD ENV
 
-/*module "ALL_USERS_DEV" {
+module "ALL_USERS_DEV" {
   source = "./users"
 
   user_maps = {
 
-    "DEV_ENV_USER01" : {"first_name" = "DEV","last_name"="user1","email"="DEV_user1@snowflake.example","default_warehouse"="COMPUTE_WH","default_role"="PUBLIC"},
-    "DEV_ENV_USER02" : {"first_name" = "DEV","last_name"="user2","email"="DEV_user2@snowflake.example","default_warehouse"="COMPUTE_WH","default_role"="PUBLIC"},
-    "DEV_ENV_USER03" : {"first_name" = "DEV","last_name"="user3","email"="DEV_user3@snowflake.example"}
+    "DEV_USER01" : {"first_name" = "DEV","last_name"="user1","email"="DEV_user1@snowflake.example","default_warehouse"="COMPUTE_WH","default_role"="PUBLIC"},
+    "DEV_USER02" : {"first_name" = "DEV","last_name"="user2","email"="DEV_user2@snowflake.example","default_warehouse"="COMPUTE_WH","default_role"="PUBLIC"},
+    "DEV_USER03" : {"first_name" = "DEV","last_name"="user3","email"="DEV_user3@snowflake.example"}
   }
 }
 
@@ -46,17 +46,17 @@ output "ALL_USERS_DEV" {
   sensitive = true
 }
 
-module "DEV_ENV_ROLES" {
+module "DEV_ROLES" {
  source = "./roles"
- name = "DATA_VIZZ"
+ name = "DB_ADMIN"
  comment = "a role for SYSADMIN inc"
  role_name = ["SYSADMIN"]
  users = [
-  module.ALL_USERS_DEV.USERS.DEV_ENV_USER01.name,
-  module.ALL_USERS_DEV.USERS.DEV_ENV_USER02.name,
-  module.ALL_USERS_DEV.USERS.DEV_ENV_USER03.name  
+  module.ALL_USERS_DEV.USERS.DEV_USER01.name,
+  module.ALL_USERS_DEV.USERS.DEV_USER02.name,
+  module.ALL_USERS_DEV.USERS.DEV_USER03.name  
  ]
-}*/
+}
 
 
 module "WAREHOUSE_DEV_WH04" {

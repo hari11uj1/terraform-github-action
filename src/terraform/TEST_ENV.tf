@@ -23,7 +23,7 @@ provider "snowflake" {
   username = var.snowflake_username
   password = var.snowflake_password # do not use, we'll set an env var instead
   role     = var.snowflake_role
-} 
+} */
   
 
 #users for test env
@@ -33,9 +33,9 @@ module "ALL_USERS_TEST" {
 
   user_maps = {
 
-    "TEST_USER001" : {"first_name" = "test","last_name"="user1","email"="user@snowflake.example","default_warehouse"="WAREHOUSE_TEST_WH001","default_role"="DATA_LOADER"},
-    "TEST_USER002" : {"first_name" = "test","last_name"="user2","email"="user2@snowflake.example","default_warehouse"="WAREHOUSE_TEST_WH001","default_role"="DATA_LOADER"},
-    "TEST_USER003" : {"first_name" = "test","last_name"="user3","email"="user3@snowflake.example","default_warehouse"="WAREHOUSE_TEST_WH001","default_role"="DATA_LOADER"}
+    "TEST_USER001" : {"first_name" = "test","last_name"="user1","email"="user@snowflake.example","default_warehouse"="WAREHOUSE_DEV_WH04","default_role"="DATA_ENGG"},
+    "TEST_USER002" : {"first_name" = "test","last_name"="user2","email"="user2@snowflake.example","default_warehouse"="WAREHOUSE_DEV_WH04","default_role"="DATA_ENGG"},
+    "TEST_USER003" : {"first_name" = "test","last_name"="user3","email"="user3@snowflake.example","default_warehouse"="WAREHOUSE_DEV_WH04","default_role"="DATA_ENGG"}
   }
 }
 
@@ -46,15 +46,15 @@ output "ALL_USERS" {
 
 module "TEST_ROLES" {
  source = "./roles"
- name = "DATA_LOADER"
+ name = "DATA_ANALYST"
  comment = "a role for DATA LOADER "
- role_name = ["SYSADMIN"]
+ role_name = ["SYSADMIN","DB_ADMIN"]
  users = [
   module.ALL_USERS_TEST.USERS.TEST_USER001.name,
   module.ALL_USERS_TEST.USERS.TEST_USER002.name,
   module.ALL_USERS_TEST.USERS.TEST_USER003.name  
  ]
-}*/
+}
 
 module "WAREHOUSE_DEV_WH04" {
   source            = "./warehouse"

@@ -63,8 +63,8 @@ module "WAREHOUSE_UAT_WH03" {
   warehouse_name    = "WAREHOUSE_UAT_WH03"
   warehouse_size    = "SMALL"
   roles = {
-    "OWNERSHIP" = [module.UAT_ROLES.name],
-    "USAGE" = [module.UAT_ROLES.name]
+    "OWNERSHIP" = ["SYSADMIN"],
+    "USAGE" = ["SYSADMIN"]
   }
   with_grant_option = false
 }
@@ -82,9 +82,9 @@ module "DATABASE_UAT_DB03" {
   schemas = ["STAGE_SCHEMA","TARGET_SCHEMA"]
   schema_grants = {
    "STAGE_SCHEMA OWNERSHIP" = {"roles"= ["SYSADMIN"]},
-   "STAGE_SCHEMA USAGE" = {"roles"= [module.UAT_ROLES.name,"SYSADMIN"]},
+   "STAGE_SCHEMA USAGE" = {"roles"= ["PUBLIC","SYSADMIN"]},
    "TARGET_SCHEMA OWNERSHIP" = {"roles"= ["SYSADMIN"]},
-   "TARGET_SCHEMA USAGE"= {"roles"= [module.UAT_ROLES.name,"SYSADMIN"]}
+   "TARGET_SCHEMA USAGE"= {"roles"= ["PUBLIC","SYSADMIN"]}
   }
   
 }

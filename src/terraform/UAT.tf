@@ -24,38 +24,40 @@ provider "snowflake" {
   username = var.snowflake_username
   password = var.snowflake_password # do not use, we'll set an env var instead
   role     = var.snowflake_role
-} 
+} */
   
 
 # USERS FOR PROD ENV
 
-module "ALL_USERS_UAT" {
+module "ALL_USERS_DEV" {
   source = "./users"
 
   user_maps = {
 
-    "UAT_USER1" : {"first_name" = "UAT","last_name"="user1","email"="UAT_user1@snowflake.example","default_warehouse"="WAREHOUSE_UAT_WH03","default_role"="UAT_ROLES"},
-    "UAT_USER2" : {"first_name" = "UAT","last_name"="user2","email"="UAT_user2@snowflake.example","default_warehouse"="WAREHOUSE_UAT_WH03","default_role"="UAT_ROLES"},
-    "UAT_USER3" : {"first_name" = "UAT","last_name"="user3","email"="UAT_user3@snowflake.example","default_warehouse"="WAREHOUSE_UAT_WH03","default_role"="UAT_ROLES"}
+    "DEV_USER01" : {"first_name" = "DEV","last_name"="user01","email"="DEV_user1@snowflake.example","default_warehouse"="WAREHOUSE_UAT_WH03","default_role"="PUBLIC"},
+    "DEV_USER02" : {"first_name" = "DEV","last_name"="user02","email"="DEV_user2@snowflake.example","default_warehouse"="WAREHOUSE_UAT_WH03","default_role"="PUBLIC"},
+    "DEV_USER03" : {"first_name" = "DEV","last_name"="user03","email"="DEV_user3@snowflake.example","default_warehouse"="WAREHOUSE_UAT_WH03","default_role"="PUBLIC"}
   }
+
 }
 
-output "ALL_USERS_UAT" {
-  value = module.ALL_USERS_UAT
+
+output "ALL_USERS_DEV" {
+  value = module.ALL_USERS_DEV
   sensitive = true
 }
 
 module "UAT_ROLES" {
  source = "./roles"
- name = "UAT_ROLES"
+ name = "DATA_ENGG"
  comment = "a role for SYSADMIN inc"
  role_name = ["SYSADMIN"]
  users = [
-  module.ALL_USERS_UAT.USERS.UAT_USER1.name,
-  module.ALL_USERS_UAT.USERS.UAT_USER2.name,
-  module.ALL_USERS_UAT.USERS.UAT_USER3.name  
+  module.ALL_USERS_DEV.USERS.DEV_USER01.name,
+  module.ALL_USERS_DEV.USERS.DEV_USER02.name,
+  module.ALL_USERS_DEV.USERS.DEV_USER03.name  
  ]
-}*/
+}
 
 
 

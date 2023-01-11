@@ -54,7 +54,7 @@ module "TEST_ROLES" {
   module.ALL_USERS_TEST.USERS.TEST_USER002.name,
   module.ALL_USERS_TEST.USERS.TEST_USER003.name  
  ]
-}
+}*/
 
 module "WAREHOUSE_TEST_WH001" {
   source            = "./warehouse"
@@ -62,7 +62,7 @@ module "WAREHOUSE_TEST_WH001" {
   warehouse_size    = "SMALL"
   roles = {
     "OWNERSHIP" = ["SYSADMIN"],
-    "USAGE" = ["SYSADMIN","PUBLIC"]
+    "USAGE" = ["SYSADMIN","DATA_ENGG"]
   }
   with_grant_option = false
 }
@@ -77,19 +77,19 @@ module "DATABASE_TEST_DB01" {
   db_data_retention_time_in_days = 1
   db_role_grants = {
     "OWNERSHIP" = ["SYSADMIN"],
-    "USAGE" = ["SYSADMIN","PUBLIC"]
+    "USAGE" = ["SYSADMIN","DATA_ENGG"]
   }
   schemas = ["STAGE_SCHEMA","TARGET_SCHEMA"]
   schema_grants = {
    "STAGE_SCHEMA OWNERSHIP" = {"roles"= ["SYSADMIN"]},
-   "STAGE_SCHEMA USAGE" = {"roles"= ["SYSADMIN","PUBLIC"]},
+   "STAGE_SCHEMA USAGE" = {"roles"= ["SYSADMIN","DATA_ENGG"]},
    "TARGET_SCHEMA OWNERSHIP" = {"roles"= ["SYSADMIN"]},
-   "TARGET_SCHEMA USAGE"= {"roles"= ["SYSADMIN","PUBLIC"]},
+   "TARGET_SCHEMA USAGE"= {"roles"= ["SYSADMIN","DATA_ENGG"]},
   }
   
 }
 
 output "DATABASE_TEST_DB01" {
   value = module.DATABASE_TEST_DB01
-}*/
+}
 

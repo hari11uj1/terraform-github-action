@@ -29,13 +29,13 @@ provider "snowflake" {
 
 # USERS FOR PROD ENV
 
-/*module "ALL_USERS_UAT" {
+module "ALL_USERS_UAT" {
   source = "./users"
 
   user_maps = {
 
-    "UAT_USER01" : {"first_name" = "UAT","last_name"="user1","email"="UATuser1@snowflake.example","default_warehouse"="COMPUTE_WH","default_role"="PUBLIC"},
-    "UAT_USER02" : {"first_name" = "UAT","last_name"="user2","email"="UATuser2@snowflake.example","default_warehouse"="COMPUTE_WH","default_role"="PUBLIC"},
+    "UAT_USER01" : {"first_name" = "UAT","last_name"="user1","email"="UAT_user01@snowflake.example","default_warehouse"="WAREHOUSE_TEST_WH001","default_role"="PUBLIC"},
+    "UAT_USER02" : {"first_name" = "UAT","last_name"="user2","email"="UAT_user02@snowflake.example","default_warehouse"="WAREHOUSE_TEST_WH001","default_role"="PUBLIC"},
 
   }
 }
@@ -54,7 +54,7 @@ module "DB_ADMIN" {
   module.ALL_USERS_UAT.USERS.UAT_USER01.name,
   module.ALL_USERS_UAT.USERS.UAT_USER02.name, 
  ]
-}*/
+}
 
 module "WAREHOUSE_TEST_WH001" {
   source            = "./warehouse"

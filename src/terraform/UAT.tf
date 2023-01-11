@@ -1,4 +1,5 @@
-terraform {
+
+/*terraform {
   required_providers {
     snowflake = {
       source  = "Snowflake-Labs/snowflake"
@@ -23,7 +24,7 @@ provider "snowflake" {
   username = var.snowflake_username
   password = var.snowflake_password # do not use, we'll set an env var instead
   role     = var.snowflake_role
-} 
+} */
   
 
 # USERS FOR PROD ENV

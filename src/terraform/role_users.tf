@@ -34,9 +34,9 @@ module "ALL_USERS_UAT" {
 
   user_maps = {
 
-    "UAT_USER1" : {"first_name" = "UAT","last_name"="user1","email"="UATuser1@snowflake.example","default_warehouse"="COMPUTE_WH","default_role"="PUBLIC"},
-    "UAT_USER2" : {"first_name" = "UAT","last_name"="user2","email"="UATuser2@snowflake.example","default_warehouse"="COMPUTE_WH","default_role"="PUBLIC"},
-    "UAT_USER3" : {"first_name" = "UAT","last_name"="user3","email"="UATuser3@snowflake.example","default_warehouse"="COMPUTE_WH","default_role"="PUBLIC"}
+    "UAT_USER01" : {"first_name" = "UAT","last_name"="user1","email"="UATuser1@snowflake.example","default_warehouse"="COMPUTE_WH","default_role"="PUBLIC"},
+    "UAT_USER02" : {"first_name" = "UAT","last_name"="user2","email"="UATuser2@snowflake.example","default_warehouse"="COMPUTE_WH","default_role"="PUBLIC"},
+
   }
 }
 
@@ -51,8 +51,7 @@ module "DB_ADMIN" {
  comment = "a role for SYSADMIN inc"
  role_name = ["SYSADMIN"]
  users = [
-  module.ALL_USERS_UAT.USERS.UAT_USER1.name,
-  module.ALL_USERS_UAT.USERS.UAT_USER2.name,
-  module.ALL_USERS_UAT.USERS.UAT_USER3.name  
+  module.ALL_USERS_UAT.USERS.UAT_USER01.name,
+  module.ALL_USERS_UAT.USERS.UAT_USER02.name, 
  ]
 }

@@ -33,9 +33,9 @@ module "ALL_USERS_TEST" {
 
   user_maps = {
 
-    "TEST_USER001" : {"first_name" = "test","last_name"="user1","email"="user@snowflake.example","default_warehouse"="COMPUTE_WH","default_role"="PUBLIC"},
-    "TEST_USER002" : {"first_name" = "test","last_name"="user2","email"="user2@snowflake.example","default_warehouse"="COMPUTE_WH","default_role"="PUBLIC"},
-    "TEST_USER003" : {"first_name" = "test","last_name"="user3","email"="user3@snowflake.example"}
+    "TEST_USER001" : {"first_name" = "test","last_name"="user1","email"="user@snowflake.example","default_warehouse"="WAREHOUSE_TEST_WH001","default_role"="DATA_LOADER"},
+    "TEST_USER002" : {"first_name" = "test","last_name"="user2","email"="user2@snowflake.example","default_warehouse"="WAREHOUSE_TEST_WH001","default_role"="DATA_LOADER"},
+    "TEST_USER003" : {"first_name" = "test","last_name"="user3","email"="user3@snowflake.example","default_warehouse"="WAREHOUSE_TEST_WH001","default_role"="DATA_LOADER"}
   }
 }
 

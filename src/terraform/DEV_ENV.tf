@@ -5,7 +5,7 @@
       version = "0.39.0"
     }
   }
-}
+} 
 
 terraform {
   backend "remote" {

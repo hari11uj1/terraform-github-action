@@ -77,7 +77,7 @@ module "DATABASE_UAT_DB03" {
   db_data_retention_time_in_days = 1
   db_role_grants = {
     "OWNERSHIP" = ["SYSADMIN"],
-    "USAGE" = [module.UAT_ROLES.name]
+    "USAGE" = ["PUBLIC"]
   }
   schemas = ["STAGE_SCHEMA","TARGET_SCHEMA"]
   schema_grants = {

@@ -52,6 +52,10 @@ on:
 
 env:
   ROOT_PATH: "${{github.workspace}}/src/terraform"
+  TF_VAR_snowflake_account  : ${{secrets.TF_VAR_snowflake_account}}
+  TF_VAR_snowflake_password : ${{secrets.TF_VAR_snowflake_password}}
+  TF_VAR_snowflake_role     : ${{secrets.TF_VAR_snowflake_role}}
+  TF_VAR_snowflake_username : ${{secrets.TF_VAR_snowflake_username}}
   
 
 
@@ -60,11 +64,6 @@ jobs:
     name: 'Terraform plan'
     runs-on: ubuntu-latest
     environment: production
-    env:
-      snowflake_account  : ${{secrets.TF_VAR_snowflake_account}}
-      snowflake_password : ${{secrets.TF_VAR_snowflake_password}}
-      snowflake_role     : ${{secrets.TF_VAR_snowflake_role}}
-      snowflake_username : ${{secrets.TF_VAR_snowflake_username}}
 
     # Use the Bash shell regardless  whether the GitHub Actions runner is ubuntu-latest, macos-latest, or windows-latest
     defaults:

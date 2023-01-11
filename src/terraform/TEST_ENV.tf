@@ -40,7 +40,7 @@ module "ALL_USERS_TEST" {
 }
 
 output "ALL_USERS" {
-  value = module.ALL_USERS
+  value = module.ALL_USERS_TEST
   sensitive = true
 }
 

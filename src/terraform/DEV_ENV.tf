@@ -52,9 +52,9 @@ module "DEV_ROLES" {
  comment = "a role for SYSADMIN inc"
  role_name = ["SYSADMIN"]
  users = [
-  module.ALL_USERS_DEV.USERS.DEV_USER1.name,
-  module.ALL_USERS_DEV.USERS.DEV_USER2.name,
-  module.ALL_USERS_DEV.USERS.DEV_USER3.name  
+  module.ALL_USERS_DEV.USERS.DEV_USER01.name,
+  module.ALL_USERS_DEV.USERS.DEV_USER02.name,
+  module.ALL_USERS_DEV.USERS.DEV_USER03.name  
  ]
 }
 

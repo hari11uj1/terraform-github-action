@@ -10,6 +10,6 @@ variable "role_name" {
   type = list(string)
 }
 
-/*variable "users" {
+variable "users" {
   type = list(string)
-}*/
+}

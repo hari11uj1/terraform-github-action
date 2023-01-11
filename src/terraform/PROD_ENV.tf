@@ -33,9 +33,9 @@ module "ALL_USERS_PROD" {
 
   user_maps = {
 
-    "PROD_USER01" : {"first_name" = "PROD","last_name"="user1","email"="PROD_user1@snowflake.example","default_warehouse"="WAREHOUSE_PROD_WH02","default_role"="DATA_ANALYST"},
-    "PROD_USER02" : {"first_name" = "PROD","last_name"="user2","email"="PROD_user2@snowflake.example","default_warehouse"="WAREHOUSE_PROD_WH02","default_role"="DATA_ANALYST"},
-    "PROD_USER03" : {"first_name" = "PROD","last_name"="user3","email"="PROD_user3@snowflake.example","default_warehouse"="WAREHOUSE_PROD_WH02","default_role"="DATA_ANALYST"}
+    "PROD_USER01" : {"first_name" = "PROD","last_name"="user1","email"="PROD_user1@snowflake.example","default_warehouse"="WAREHOUSE_PROD_WH02","default_role"="DATA_LOADER"},
+    "PROD_USER02" : {"first_name" = "PROD","last_name"="user2","email"="PROD_user2@snowflake.example","default_warehouse"="WAREHOUSE_PROD_WH02","default_role"="DATA_LOADER"},
+    "PROD_USER03" : {"first_name" = "PROD","last_name"="user3","email"="PROD_user3@snowflake.example","default_warehouse"="WAREHOUSE_PROD_WH02","default_role"="DATA_LOADER"}
   }
 }
 
@@ -48,7 +48,7 @@ module "PROD_ROLES" {
  source = "./roles"
  name = "DATA_LOADER"
  comment = "a role for SYSADMIN inc"
- role_name = ["SYSADMIN","DB_ADMIN"]
+ role_name = ["DATA_ENGG"]
  users = [
   module.ALL_USERS_PROD.USERS.PROD_USER01.name,
   module.ALL_USERS_PROD.USERS.PROD_USER02.name,
@@ -61,8 +61,8 @@ module "WAREHOUSE_PROD_WH02" {
   warehouse_name    = "WAREHOUSE_PROD_WH02"
   warehouse_size    = "SMALL"
   roles = {
-    "OWNERSHIP" = ["SYSADMIN"],
-    "USAGE" = ["DB_ADMIN","DATA_ENGG"]
+    "OWNERSHIP" = ["DATA_ENGG"],
+    "USAGE" = ["DATA_ENGG","DATA_LOADER"]
   }
   with_grant_option = false
 }
@@ -74,15 +74,15 @@ module "DATABASE_PROD_DB02" {
   db_comment = "DATABASE FOR PROD_ENV_DB02"
   db_data_retention_time_in_days = 1
   db_role_grants = {
-    "OWNERSHIP" = ["SYSADMIN"],
-    "USAGE" = ["DATA_ENGG","DB_ADMIN"]
+    "OWNERSHIP" = ["DATA_ENGG"],
+    "USAGE" = ["DATA_ENGG","DATA_LOADER"]
   }
   schemas = ["STAGE_SCHEMA","TARGET_SCHEMA"]
   schema_grants = {
-   "STAGE_SCHEMA OWNERSHIP" = {"roles"= ["SYSADMIN"]},
-   "STAGE_SCHEMA USAGE" = {"roles"= ["DATA_ENGG","DB_ADMIN"]},
-   "TARGET_SCHEMA OWNERSHIP" = {"roles"= ["SYSADMIN"]},
-   "TARGET_SCHEMA USAGE"= {"roles"= ["DATA_ENGG","DB_ADMIN"]},
+   "STAGE_SCHEMA OWNERSHIP" = {"roles"= ["DATA_ENGG"]},
+   "STAGE_SCHEMA USAGE" = {"roles"= ["DATA_ENGG","DATA_LOADER"]},
+   "TARGET_SCHEMA OWNERSHIP" = {"roles"= ["DATA_ENGG"]},
+   "TARGET_SCHEMA USAGE"= {"roles"= ["DATA_ENGG","DATA_LOADER"]},
   }
   
 }

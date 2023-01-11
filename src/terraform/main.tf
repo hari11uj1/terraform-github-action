@@ -112,14 +112,14 @@ module "testerrole" {
  role_name = ["SECURITYADMIN","MARKETING"]
  users = [
   module.ALL_USERS_opp.USERS.opp_USER1.name,
-  module.ALL_USERS_opp.USERS.opp_USER2.name,
-  module.ALL_USERS_opp.USERS.opp_USER3.name,
  ]
 }
 
 output "MARKETING_DB" {
   value = module.MARKETING_DB_9
 }
+
+
 
 
 

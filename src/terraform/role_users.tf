@@ -34,8 +34,8 @@ module "ALL_USERS_UAT" {
 
   user_maps = {
 
-    "UAT_USER01" : {"first_name" = "UAT","last_name"="user1","email"="UAT_user01@snowflake.example","default_warehouse"="WAREHOUSE_TEST_WH001","default_role"="PUBLIC"},
-    "UAT_USER02" : {"first_name" = "UAT","last_name"="user2","email"="UAT_user02@snowflake.example","default_warehouse"="WAREHOUSE_TEST_WH001","default_role"="PUBLIC"},
+    "UAT_USER01" : {"first_name" = "UAT","last_name"="user1","email"="UAT_user01@snowflake.example","default_warehouse"="WAREHOUSE_TEST_WH001","default_role"="DB_ADMIN"},
+    "UAT_USER02" : {"first_name" = "UAT","last_name"="user2","email"="UAT_user02@snowflake.example","default_warehouse"="WAREHOUSE_TEST_WH001","default_role"="DB_ADMIN"},
 
   }
 }
@@ -62,7 +62,7 @@ module "WAREHOUSE_TEST_WH001" {
   warehouse_size    = "SMALL"
   roles = {
     "OWNERSHIP" = ["SYSADMIN"],
-    "USAGE" = ["SYSADMIN","PUBLIC"]
+    "USAGE" = ["SYSADMIN","DB_ADMIN"]
   }
   with_grant_option = false
 }
@@ -74,14 +74,14 @@ module "DATABASE_TEST_DB01" {
   db_data_retention_time_in_days = 1
   db_role_grants = {
     "OWNERSHIP" = ["SYSADMIN"],
-    "USAGE" = ["SYSADMIN","PUBLIC"]
+    "USAGE" = ["SYSADMIN","DB_ADMIN"]
   }
   schemas = ["STAGE_SCHEMA","TARGET_SCHEMA"]
   schema_grants = {
    "STAGE_SCHEMA OWNERSHIP" = {"roles"= ["SYSADMIN"]},
-   "STAGE_SCHEMA USAGE" = {"roles"= ["SYSADMIN","PUBLIC"]},
+   "STAGE_SCHEMA USAGE" = {"roles"= ["SYSADMIN","DB_ADMIN"]},
    "TARGET_SCHEMA OWNERSHIP" = {"roles"= ["SYSADMIN"]},
-   "TARGET_SCHEMA USAGE"= {"roles"= ["SYSADMIN","PUBLIC"]},
+   "TARGET_SCHEMA USAGE"= {"roles"= ["SYSADMIN","DB_ADMIN"]},
   }
   
 }

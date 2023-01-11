@@ -29,7 +29,7 @@ provider "snowflake" {
 
 # USERS FOR PROD ENV
 
-module "ALL_USERS_UAT" {
+/*module "ALL_USERS_UAT" {
   source = "./users"
 
   user_maps = {
@@ -54,4 +54,38 @@ module "DB_ADMIN" {
   module.ALL_USERS_UAT.USERS.UAT_USER01.name,
   module.ALL_USERS_UAT.USERS.UAT_USER02.name, 
  ]
+}*/
+
+module "WAREHOUSE_TEST_WH001" {
+  source            = "./warehouse"
+  warehouse_name    = "WAREHOUSE_TEST_WH001"
+  warehouse_size    = "SMALL"
+  roles = {
+    "OWNERSHIP" = ["SYSADMIN"],
+    "USAGE" = ["SYSADMIN","PUBLIC"]
+  }
+  with_grant_option = false
+}
+
+module "DATABASE_TEST_DB01" {
+  source = "./database01"
+  db_name = "DATABASE_TEST_DB01"
+  db_comment = "DATABASE FOR TEST_ENV_DB01"
+  db_data_retention_time_in_days = 1
+  db_role_grants = {
+    "OWNERSHIP" = ["SYSADMIN"],
+    "USAGE" = ["SYSADMIN","PUBLIC"]
+  }
+  schemas = ["STAGE_SCHEMA","TARGET_SCHEMA"]
+  schema_grants = {
+   "STAGE_SCHEMA OWNERSHIP" = {"roles"= ["SYSADMIN"]},
+   "STAGE_SCHEMA USAGE" = {"roles"= ["SYSADMIN","PUBLIC"]},
+   "TARGET_SCHEMA OWNERSHIP" = {"roles"= ["SYSADMIN"]},
+   "TARGET_SCHEMA USAGE"= {"roles"= ["SYSADMIN","PUBLIC"]},
+  }
+  
+}
+
+output "DATABASE_TEST_DB01" {
+  value = module.DATABASE_TEST_DB01
 }

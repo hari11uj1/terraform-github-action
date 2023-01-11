@@ -41,8 +41,8 @@ module "ALL_USERS_DEV_VIZ" {
   }
 }
 
-output "ALL_USERS_DEV" {
-  value = module.ALL_USERS_DEV
+output "ALL_USERS_DEV_VIZ" {
+  value = module.ALL_USERS_DEV_VIZ
   sensitive = true
 }
 

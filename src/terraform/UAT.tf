@@ -34,9 +34,9 @@ module "ALL_USERS_UAT" {
 
   user_maps = {
 
-    "UAT_USER1" : {"first_name" = "UAT","last_name"="user1","email"="UAT_user1@snowflake.example"},
-    "UAT_USER2" : {"first_name" = "UAT","last_name"="user2","email"="UAT_user2@snowflake.example"},
-    "UAT_USER3" : {"first_name" = "UAT","last_name"="user3","email"="UAT_user3@snowflake.example"}
+    "UAT_USER1" : {"first_name" = "UAT","last_name"="user1","email"="UAT_user1@snowflake.example","default_warehouse"="WAREHOUSE_UAT_WH03","default_role"="UAT_ROLES"},
+    "UAT_USER2" : {"first_name" = "UAT","last_name"="user2","email"="UAT_user2@snowflake.example","default_warehouse"="WAREHOUSE_UAT_WH03","default_role"="UAT_ROLES"},
+    "UAT_USER3" : {"first_name" = "UAT","last_name"="user3","email"="UAT_user3@snowflake.example","default_warehouse"="WAREHOUSE_UAT_WH03","default_role"="UAT_ROLES"}
   }
 }
 
@@ -52,7 +52,8 @@ module "UAT_ROLES" {
  role_name = ["SYSADMIN"]
  users = [
   module.ALL_USERS_UAT.USERS.UAT_USER1.name,
-  module.ALL_USERS_UAT.USERS.UAT_USER2.name,  
+  module.ALL_USERS_UAT.USERS.UAT_USER2.name,
+  module.ALL_USERS_UAT.USERS.UAT_USER3.name  
  ]
 }
 
@@ -63,8 +64,8 @@ module "WAREHOUSE_UAT_WH03" {
   warehouse_name    = "WAREHOUSE_UAT_WH03"
   warehouse_size    = "SMALL"
   roles = {
-    "OWNERSHIP" = ["SYSADMIN"],
-    "USAGE" = ["SYSADMIN"]
+    "OWNERSHIP" = ["SYSADMIN","UAT_ROLES"],
+    "USAGE" = ["SYSADMIN","UAT_ROLES"]
   }
   with_grant_option = false
 }
@@ -77,14 +78,14 @@ module "DATABASE_UAT_DB03" {
   db_data_retention_time_in_days = 1
   db_role_grants = {
     "OWNERSHIP" = ["SYSADMIN"],
-    "USAGE" = ["PUBLIC"]
+    "USAGE" = ["UAT_ROLES","SYSADMIN"]
   }
   schemas = ["STAGE_SCHEMA","TARGET_SCHEMA"]
   schema_grants = {
    "STAGE_SCHEMA OWNERSHIP" = {"roles"= ["SYSADMIN"]},
-   "STAGE_SCHEMA USAGE" = {"roles"= ["PUBLIC","SYSADMIN"]},
+   "STAGE_SCHEMA USAGE" = {"roles"= ["UAT_ROLES","SYSADMIN"]},
    "TARGET_SCHEMA OWNERSHIP" = {"roles"= ["SYSADMIN"]},
-   "TARGET_SCHEMA USAGE"= {"roles"= ["PUBLIC","SYSADMIN"]}
+   "TARGET_SCHEMA USAGE"= {"roles"= ["UAT_ROLES","SYSADMIN"]}
   }
   
 }

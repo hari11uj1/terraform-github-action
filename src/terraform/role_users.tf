@@ -12,16 +12,17 @@ terraform {
     organization = "SNOWFLAKE_TERRAFORM_INTIGRATION"
 
     workspaces {
-      name = "SNOWFLAKE_ENV"
+      name = "SNOWFLAKE_TERAFORM"
     }
   }
 }
 
 provider "snowflake" {
-  snowflake_username = "${secrets.TF_VAR_snowflake_account}"
-  snowflake_role = var.snowflake_role
-  snowflake_password = var.snowflake_password
-  snowflake_account = var.snowflake_account
+  account = var.snowflake_account
+  # region = "your-region-here" # fill-in only if required
+  username = var.snowflake_username
+  password = var.snowflake_password # do not use, we'll set an env var instead
+  role     = var.snowflake_role
 } 
 
   

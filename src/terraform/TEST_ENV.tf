@@ -56,9 +56,9 @@ module "TEST_ROLES" {
  ]
 }*/
 
-module "WAREHOUSE_TEST_WH001" {
+module "WAREHOUSE_DEV_WH04" {
   source            = "./warehouse"
-  warehouse_name    = "WAREHOUSE_TEST_WH001"
+  warehouse_name    = "WAREHOUSE_DEV_WH04"
   warehouse_size    = "SMALL"
   roles = {
     "OWNERSHIP" = ["SYSADMIN"],
@@ -70,10 +70,10 @@ module "WAREHOUSE_TEST_WH001" {
 
 
 
-module "DATABASE_TEST_DB01" {
+module "DATABASE_DEV_DB04" {
   source = "./database01"
-  db_name = "DATABASE_TEST_DB01"
-  db_comment = "DATABASE FOR TEST_ENV_DB01"
+  db_name = "DATABASE_DEV_DB04"
+  db_comment = "DATABASE FOR TEST_ENV_DB04"
   db_data_retention_time_in_days = 1
   db_role_grants = {
     "OWNERSHIP" = ["SYSADMIN"],
@@ -89,7 +89,7 @@ module "DATABASE_TEST_DB01" {
   
 }
 
-output "DATABASE_TEST_DB01" {
-  value = module.DATABASE_TEST_DB01
+output "DATABASE_DEV_DB04" {
+  value = module.DATABASE_DEV_DB04
 }
 

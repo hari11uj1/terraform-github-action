@@ -1,4 +1,4 @@
-snowflake_account  = "og99478.central-india.azure"
+/*snowflake_account  = "bq23002.us-east-2.aws"
 snowflake_password = "11Uj1a0318"
 snowflake_role     = "accountadmin"
-snowflake_username = "HARISHKUMAR"
+snowflake_username = "HARISHKUMAR1" */

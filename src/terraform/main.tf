@@ -1,4 +1,4 @@
-terraform {
+/*terraform {
   required_providers {
     snowflake = {
       source  = "Snowflake-Labs/snowflake"
@@ -12,7 +12,7 @@ terraform {
     organization = "SNOWFLAKE_TERRAFORM_INTIGRATION"
 
     workspaces {
-      name = "SNOWFLAKE_ENV"
+      name = "SNOWFLAKE_TERAFORM"
     }
   }
 }
@@ -139,4 +139,4 @@ module "ALL_USERS_opp" {
 output "ALL_USERS_opp" {
   value = module.ALL_USERS_opp
   sensitive = true
-}
+}*/

@@ -24,7 +24,7 @@ provider "snowflake" {
   username = var.snowflake_username
   password = var.snowflake_password # do not use, we'll set an env var instead
   role     = var.snowflake_role
-} */
+} 
   
 
 # USERS FOR PROD ENV
@@ -92,5 +92,5 @@ module "DATABASE_UAT_DB03" {
 
 output "DATABASE_UAT_DB03" {
   value = module.DATABASE_UAT_DB03
-}
+}*/
 

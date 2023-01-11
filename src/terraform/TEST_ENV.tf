@@ -23,7 +23,7 @@ provider "snowflake" {
   username = var.snowflake_username
   password = var.snowflake_password # do not use, we'll set an env var instead
   role     = var.snowflake_role
-} */
+} 
   
 
 #users for test env
@@ -91,5 +91,5 @@ module "DATABASE_TEST_DB01" {
 
 output "DATABASE_TEST_DB01" {
   value = module.DATABASE_TEST_DB01
-}
+}*/
 

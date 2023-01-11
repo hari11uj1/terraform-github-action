@@ -1,33 +1,3 @@
-/*terraform {
-  required_providers {
-    snowflake = {
-      source  = "Snowflake-Labs/snowflake"
-      version = "0.39.0"
-    }
-  }
-}
-
-terraform {
-  backend "remote" {
-    organization = "SNOWFLAKE_TERRAFORM_INTIGRATION"
-
-    workspaces {
-      name = "SNOWFLAKE_ENV"
-    }
-  }
-}
-
-provider "snowflake" {
-  account = var.snowflake_account
-  # region = "your-region-here" # fill-in only if required
-  username = var.snowflake_username
-  password = var.snowflake_password # do not use, we'll set an env var instead
-  role     = var.snowflake_role
-}*/
-
-
-  
-
 # USERS FOR PROD ENV
 
 module "ALL_USERS_DEV_VIZ" {

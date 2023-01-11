@@ -34,9 +34,9 @@ module "ALL_USERS_UAT" {
 
   user_maps = {
 
-    "UAT_USER1" : {"first_name" = "UAT","last_name"="user1","email"="UAT_user1@snowflake.example","default_warehouse"= module.WAREHOUSE_UAT_WH03.warehouse_name,"default_role"=module.UAT_ROLES.name},
-    "UAT_USER2" : {"first_name" = "UAT","last_name"="user2","email"="UAT_user2@snowflake.example","default_warehouse"= module.WAREHOUSE_UAT_WH03.warehouse_name,"default_role"=module.UAT_ROLES.name},
-    "UAT_USER3" : {"first_name" = "UAT","last_name"="user3","email"="UAT_user3@snowflake.example","default_warehouse"= module.WAREHOUSE_UAT_WH03.warehouse_name,"default_role"=module.UAT_ROLES.name}
+    "UAT_USER1" : {"first_name" = "UAT","last_name"="user1","email"="UAT_user1@snowflake.example"},
+    "UAT_USER2" : {"first_name" = "UAT","last_name"="user2","email"="UAT_user2@snowflake.example"},
+    "UAT_USER3" : {"first_name" = "UAT","last_name"="user3","email"="UAT_user3@snowflake.example"}
   }
 }
 

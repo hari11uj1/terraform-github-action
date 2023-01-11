@@ -30,7 +30,7 @@ provider "snowflake" {
 
 # USERS FOR PROD ENV
 
-module "ALL_USERS_DEV" {
+/*module "ALL_USERS_DEV" {
   source = "./users"
 
   user_maps = {
@@ -92,5 +92,5 @@ module "DATABASE_DEV_DB04" {
 
 output "DATABASE_DEV_DB04" {
   value = module.DATABASE_DEV_DB04
-}
+}*/
 

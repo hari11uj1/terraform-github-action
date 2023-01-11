@@ -5,7 +5,7 @@
       version = "0.39.0"
     }
   }
-} 
+}
 
 terraform {
   backend "remote" {
@@ -35,8 +35,8 @@ module "ALL_USERS_DEV" {
 
   user_maps = {
 
-    "DEV_USER01" : {"first_name" = "DEV","last_name"="user1","email"="DEV_user1@snowflake.example","default_warehouse"="WAREHOUSE_DEV_WH04","default_role"="PUBLIC"},
-    "DEV_USER02" : {"first_name" = "DEV","last_name"="user2","email"="DEV_user2@snowflake.example","default_warehouse"="WAREHOUSE_DEV_WH04","default_role"="PUBLIC"},
+    "DEV_USER01" : {"first_name" = "DEV","last_name"="user1","email"="DEV_user1@snowflake.example","default_warehouse"="COMPUTE_WH","default_role"="PUBLIC"},
+    "DEV_USER02" : {"first_name" = "DEV","last_name"="user2","email"="DEV_user2@snowflake.example","default_warehouse"="COMPUTE_WH","default_role"="PUBLIC"},
     "DEV_USER03" : {"first_name" = "DEV","last_name"="user3","email"="DEV_user3@snowflake.example"}
   }
 }
@@ -48,7 +48,7 @@ output "ALL_USERS_DEV" {
 
 module "DEV_ROLES" {
  source = "./roles"
- name = "DB_ADMIN"
+ name = "DEV_ROLES"
  comment = "a role for SYSADMIN inc"
  role_name = ["SYSADMIN"]
  users = [

@@ -56,24 +56,24 @@ module "DEV_ROLES" {
   module.ALL_USERS_DEV.USERS.DEV_USER02.name,
   module.ALL_USERS_DEV.USERS.DEV_USER03.name  
  ]
-}
+}*/
 
 
-module "WAREHOUSE_DEV_WH04" {
+module "WAREHOUSE_DEV_WH05" {
   source            = "./warehouse"
-  warehouse_name    = "WAREHOUSE_DEV_WH04"
+  warehouse_name    = "WAREHOUSE_DEV_WH05"
   warehouse_size    = "SMALL"
   roles = {
     "OWNERSHIP" = ["SYSADMIN"],
-    "USAGE" = ["SYSADMIN","PUBLIC"]
+    "USAGE" = ["SYSADMIN","DATA_ENGG"]
   }
   with_grant_option = false
 }
 
 
-module "DATABASE_DEV_DB04" {
+module "DATABASE_DEV_DB05" {
   source = "./database01"
-  db_name = "DATABASE_DEV_DB04"
+  db_name = "DATABASE_DEV_DB05"
   db_comment = "DATABASE FOR DEV_ENV_DB04"
   db_data_retention_time_in_days = 1
   db_role_grants = {
@@ -83,14 +83,14 @@ module "DATABASE_DEV_DB04" {
   schemas = ["STAGE_SCHEMA","TARGET_SCHEMA",]
   schema_grants = {
    "STAGE_SCHEMA OWNERSHIP" = {"roles"= ["SYSADMIN"]},
-   "STAGE_SCHEMA USAGE" = {"roles"= ["SYSADMIN","PUBLIC"]},
+   "STAGE_SCHEMA USAGE" = {"roles"= ["SYSADMIN","DATA_ENGG"]},
    "TARGET_SCHEMA OWNERSHIP" = {"roles"= ["SYSADMIN"]},
-   "TARGET_SCHEMA USAGE"= {"roles"= ["SYSADMIN","PUBLIC"]}
+   "TARGET_SCHEMA USAGE"= {"roles"= ["SYSADMIN","DATA_ENGG"]}
   }
   
 }
 
-output "DATABASE_DEV_DB04" {
-  value = module.DATABASE_DEV_DB04
-}*/
+output "DATABASE_DEV_DB05" {
+  value = module.DATABASE_DEV_DB05
+}
 

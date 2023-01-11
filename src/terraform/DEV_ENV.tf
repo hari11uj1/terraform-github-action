@@ -8,7 +8,7 @@ module "ALL_USERS_DEV_VIZ" {
     "DEV_USER04" : {"first_name" = "DEV","last_name"="user1","email"="DEV_user1@snowflake.example","default_warehouse"="WAREHOUSE_DEV_WH05","default_role"="DATA_VIZ"},
     "DEV_USER05" : {"first_name" = "DEV","last_name"="user2","email"="DEV_user2@snowflake.example","default_warehouse"="WAREHOUSE_DEV_WH05","default_role"="DATA_VIZ"},
     "VIZ_USER01" : {"first_name" = "DEV","last_name"="user3","email"="DEV_user3@snowflake.example","default_warehouse"="WAREHOUSE_DEV_WH05","default_role"="DATA_VIZ"},
-    "VIZ_USER02" : {"first_name" = "DEV","last_name"="user3","email"="DEV_user4@snowflake.example","default_warehouse"="WAREHOUSE_DEV_WH05","default_role"="DATA_VIZ"}
+    "VIZ_USER02" : {"first_name" = "DEV","last_name"="user4","email"="DEV_user4@snowflake.example","default_warehouse"="WAREHOUSE_DEV_WH05","default_role"="DATA_VIZ"}
 
   }
 }

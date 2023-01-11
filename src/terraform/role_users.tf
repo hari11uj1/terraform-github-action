@@ -18,8 +18,12 @@ terraform {
 }
 
 provider "snowflake" {
-  
+  snowflake_username= var.snowflake_username
+  snowflake_role = var.snowflake_role
+  snowflake_password = var.snowflake_password
+  snowflake_account = var.snowflake_account
 } 
+
   
 
 # USERS FOR PROD ENV

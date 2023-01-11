@@ -54,7 +54,7 @@ module "PROD_ROLES" {
   module.ALL_USERS_PROD.USERS.PROD_USER02.name,
   #module.ALL_USERS_PROD.USERS.PROD_USER03.name  
  ]
-}
+} */
 
 module "WAREHOUSE_PROD_WH02" {
   source            = "./warehouse"
@@ -62,7 +62,7 @@ module "WAREHOUSE_PROD_WH02" {
   warehouse_size    = "SMALL"
   roles = {
     "OWNERSHIP" = ["SYSADMIN"],
-    "USAGE" = ["SYSADMIN","PUBLIC"]
+    "USAGE" = ["DB_ADMIN","DATA_ENGG"]
   }
   with_grant_option = false
 }
@@ -75,19 +75,19 @@ module "DATABASE_PROD_DB02" {
   db_data_retention_time_in_days = 1
   db_role_grants = {
     "OWNERSHIP" = ["SYSADMIN"],
-    "USAGE" = ["SYSADMIN","PUBLIC"]
+    "USAGE" = ["DATA_ENGG","DB_ADMIN"]
   }
   schemas = ["STAGE_SCHEMA","TARGET_SCHEMA"]
   schema_grants = {
    "STAGE_SCHEMA OWNERSHIP" = {"roles"= ["SYSADMIN"]},
-   "STAGE_SCHEMA USAGE" = {"roles"= ["SYSADMIN","PUBLIC"]},
+   "STAGE_SCHEMA USAGE" = {"roles"= ["DATA_ENGG","DB_ADMIN"]},
    "TARGET_SCHEMA OWNERSHIP" = {"roles"= ["SYSADMIN"]},
-   "TARGET_SCHEMA USAGE"= {"roles"= ["SYSADMIN","PUBLIC"]},
+   "TARGET_SCHEMA USAGE"= {"roles"= ["DATA_ENGG","DB_ADMIN"]},
   }
   
 }
 
 output "DATABASE_PROD_DB02" {
   value = module.DATABASE_PROD_DB02
-}*/
+}
 

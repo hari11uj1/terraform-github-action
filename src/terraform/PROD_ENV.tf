@@ -52,7 +52,7 @@ module "PROD_ROLES" {
  users = [
   module.ALL_USERS_PROD.USERS.PROD_USER01.name,
   module.ALL_USERS_PROD.USERS.PROD_USER02.name,
-  module.ALL_USERS_PROD.USERS.PROD_USER03.name  
+  #module.ALL_USERS_PROD.USERS.PROD_USER03.name  
  ]
 }
 

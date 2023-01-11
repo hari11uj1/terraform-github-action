@@ -35,7 +35,7 @@ module "ALL_USERS_DEV" {
 
   user_maps = {
 
-    "DEV_USER01" : {"first_name" = "DEV","last_name"="user1","email"="DEV_user1@snowflake.example","default_warehouse"="WAREHOUSE_DEV_WH04","default_role"="DB_ADMIN"},
+    "DEV_USER01" : {"first_name" = "DEV","last_name"="user1","email"="DEV_user1@snowflake.example","default_warehouse"="WAREHOUSE_DEV_WH04","default_role"="PUBLIC"},
     "DEV_USER02" : {"first_name" = "DEV","last_name"="user2","email"="DEV_user2@snowflake.example","default_warehouse"="WAREHOUSE_DEV_WH04","default_role"="PUBLIC"},
     "DEV_USER03" : {"first_name" = "DEV","last_name"="user3","email"="DEV_user3@snowflake.example"}
   }

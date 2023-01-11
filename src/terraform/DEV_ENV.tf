@@ -30,7 +30,7 @@ provider "snowflake" {
 
 # USERS FOR PROD ENV
 
-module "ALL_USERS_DEV" {
+/*module "ALL_USERS_DEV" {
   source = "./users"
 
   user_maps = {
@@ -56,7 +56,7 @@ module "DEV_ENV_ROLES" {
   module.ALL_USERS_DEV.USERS.DEV_ENV_USER02.name,
   module.ALL_USERS_DEV.USERS.DEV_ENV_USER03.name  
  ]
-}
+}*/
 
 
 module "WAREHOUSE_DEV_WH04" {

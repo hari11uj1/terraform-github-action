@@ -34,9 +34,9 @@ module "ALL_USERS_DEV" {
 
   user_maps = {
 
-    "DEV_USER01" : {"first_name" = "DEV","last_name"="user01","email"="DEV_user1@snowflake.example","default_warehouse"="WAREHOUSE_UAT_WH03","default_role"="PUBLIC"},
-    "DEV_USER02" : {"first_name" = "DEV","last_name"="user02","email"="DEV_user2@snowflake.example","default_warehouse"="WAREHOUSE_UAT_WH03","default_role"="PUBLIC"},
-    "DEV_USER03" : {"first_name" = "DEV","last_name"="user03","email"="DEV_user3@snowflake.example","default_warehouse"="WAREHOUSE_UAT_WH03","default_role"="PUBLIC"}
+    "DEV_USER01" : {"first_name" = "DEV","last_name"="user01","email"="DEV_user1@snowflake.example","default_warehouse"="WAREHOUSE_UAT_WH03","default_role"="DATA_ENGG"},
+    "DEV_USER02" : {"first_name" = "DEV","last_name"="user02","email"="DEV_user2@snowflake.example","default_warehouse"="WAREHOUSE_UAT_WH03","default_role"="DATA_ENGG"},
+    "DEV_USER03" : {"first_name" = "DEV","last_name"="user03","email"="DEV_user3@snowflake.example","default_warehouse"="WAREHOUSE_UAT_WH03","default_role"="DATA_ENGG"}
   }
 
 }
@@ -51,7 +51,7 @@ module "UAT_ROLES" {
  source = "./roles"
  name = "DATA_ENGG"
  comment = "a role for SYSADMIN inc"
- role_name = ["SYSADMIN"]
+ role_name = ["DB_ADMIN"]
  users = [
   module.ALL_USERS_DEV.USERS.DEV_USER01.name,
   module.ALL_USERS_DEV.USERS.DEV_USER02.name,
@@ -66,8 +66,8 @@ module "WAREHOUSE_UAT_WH03" {
   warehouse_name    = "WAREHOUSE_UAT_WH03"
   warehouse_size    = "SMALL"
   roles = {
-    "OWNERSHIP" = ["SYSADMIN"],
-    "USAGE" = ["SYSADMIN","DB_ADMIN"]
+    "OWNERSHIP" = ["DB_ADMIN"],
+    "USAGE" = ["DB_ADMIN","DATA_ENGG"]
   }
   with_grant_option = false
 }
@@ -79,15 +79,15 @@ module "DATABASE_UAT_DB03" {
   db_comment = "DATABASE FOR UAT_ENV_DB03"
   db_data_retention_time_in_days = 1
   db_role_grants = {
-    "OWNERSHIP" = ["SYSADMIN"],
-    "USAGE" = ["DB_ADMIN","SYSADMIN"]
+    "OWNERSHIP" = ["DB_ADMIN"],
+    "USAGE" = ["DB_ADMIN","DATA_ENGG"]
   }
   schemas = ["STAGE_SCHEMA","TARGET_SCHEMA"]
   schema_grants = {
-   "STAGE_SCHEMA OWNERSHIP" = {"roles"= ["SYSADMIN"]},
-   "STAGE_SCHEMA USAGE" = {"roles"= ["DB_ADMIN","SYSADMIN"]},
-   "TARGET_SCHEMA OWNERSHIP" = {"roles"= ["SYSADMIN"]},
-   "TARGET_SCHEMA USAGE"= {"roles"= ["DB_ADMIN","SYSADMIN"]}
+   "STAGE_SCHEMA OWNERSHIP" = {"roles"= ["DB_ADMIN"]},
+   "STAGE_SCHEMA USAGE" = {"roles"= ["DB_ADMIN","DATA_ENGG"]},
+   "TARGET_SCHEMA OWNERSHIP" = {"roles"= ["DB_ADMIN"]},
+   "TARGET_SCHEMA USAGE"= {"roles"= ["DB_ADMIN","DATA_ENGG"]}
   }
   
 }

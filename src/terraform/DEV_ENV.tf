@@ -30,14 +30,14 @@ provider "snowflake" {
 
 # USERS FOR PROD ENV
 
-/*module "ALL_USERS_DEV" {
+module "ALL_USERS_DEV_VIZ" {
   source = "./users"
 
   user_maps = {
 
-    "DEV_USER01" : {"first_name" = "DEV","last_name"="user1","email"="DEV_user1@snowflake.example","default_warehouse"="COMPUTE_WH","default_role"="PUBLIC"},
-    "DEV_USER02" : {"first_name" = "DEV","last_name"="user2","email"="DEV_user2@snowflake.example","default_warehouse"="COMPUTE_WH","default_role"="PUBLIC"},
-    "DEV_USER03" : {"first_name" = "DEV","last_name"="user3","email"="DEV_user3@snowflake.example"}
+    "DEV_USER04" : {"first_name" = "DEV","last_name"="user1","email"="DEV_user1@snowflake.example","default_warehouse"="WAREHOUSE_DEV_WH05","default_role"="DATA_ANALYST"},
+    "DEV_USER05" : {"first_name" = "DEV","last_name"="user2","email"="DEV_user2@snowflake.example","default_warehouse"="WAREHOUSE_DEV_WH05","default_role"="DATA_ANALYST"},
+    "VIZ_USER01" : {"first_name" = "DEV","last_name"="user3","email"="DEV_user3@snowflake.example","default_warehouse"="WAREHOUSE_DEV_WH05","default_role"="DATA_ANALYST"}
   }
 }
 
@@ -46,17 +46,17 @@ output "ALL_USERS_DEV" {
   sensitive = true
 }
 
-module "DEV_ROLES" {
+module "DATA_VIZ" {
  source = "./roles"
- name = "DB_ADMIN"
+ name = "DATA_VIZ"
  comment = "a role for SYSADMIN inc"
- role_name = ["SYSADMIN"]
+ role_name = ["SYSADMIN","DATA_ENGG"]
  users = [
-  module.ALL_USERS_DEV.USERS.DEV_USER01.name,
-  module.ALL_USERS_DEV.USERS.DEV_USER02.name,
-  module.ALL_USERS_DEV.USERS.DEV_USER03.name  
+  module.ALL_USERS_DEV_VIZ.USERS.DEV_USER04.name,
+  module.ALL_USERS_DEV_VIZ.USERS.DEV_USER05.name,
+  module.ALL_USERS_DEV_VIZ.USERS.VIZ_USER01.name  
  ]
-}*/
+}
 
 
 module "WAREHOUSE_DEV_WH05" {

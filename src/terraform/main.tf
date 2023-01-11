@@ -67,7 +67,7 @@ module "MARKETING_SMALL_WH_MOD_07" {
   warehouse_size    = "SMALL"
   roles = {
     "OWNERSHIP" = ["MARKETING"],
-    "USAGE" = ["MARKETING","SALES","TESTING"]
+    "USAGE" = ["MARKETING","SALES"]
   }
   with_grant_option = false
 }
@@ -78,7 +78,7 @@ module "MARKETING_SMALL_WH_MOD_testrevert" {
   warehouse_size    = "SMALL"
   roles = {
     "OWNERSHIP" = ["MARKETING"],
-    "USAGE" = ["MARKETING","SALES","TESTING"]
+    "USAGE" = ["MARKETING","SALES"]
   }
   with_grant_option = false
 }
@@ -91,14 +91,14 @@ module "MARKETING_DB_9" {
   db_data_retention_time_in_days = 1
   db_role_grants = {
     "OWNERSHIP" = ["MARKETING"],
-    "USAGE" = ["MARKETING","SALES","TESTING"]
+    "USAGE" = ["MARKETING","SALES",]
   }
-  schemas = ["FACEBOOK","TWITTER","TESTING"]
+  schemas = ["FACEBOOK","TWITTER"]
   schema_grants = {
    "FACEBOOK OWNERSHIP" = {"roles"= ["MARKETING"]},
-   "FACEBOOK USAGE" = {"roles"= ["SALES","TESTING"]},
+   "FACEBOOK USAGE" = {"roles"= ["SALES"]},
    "TWITTER OWNERSHIP" = {"roles"= ["MARKETING"]},
-   "TWITTER USAGE"= {"roles"= ["SALES","TESTING"]},
+   "TWITTER USAGE"= {"roles"= ["SALES"]},
    "TWITTER CREATE FUNCTION"= {"roles"= ["SALES"]},
    "TWITTER CREATE PIPE" = {"roles"= ["SALES"]}
   }

@@ -128,7 +128,7 @@ module "ALL_USERS_opp" {
 
   user_maps = {
 
-    "opp_USER1" : {"first_name" = "opp","last_name"="user1","email"="opp_user1@snowflake.example","default_warehouse"="MARKETING_SMALL_WH_MOD_07","default_role"="TESTING"},
+    "opp_USER1" : {"first_name" = "opp","last_name"="user1","email"="opp_user1@snowflake.example","default_warehouse"="MARKETING_SMALL_WH_MOD_07","default_role"="MARKETING"},
     "opp_USER2" : {"first_name" = "opp","last_name"="user2","email"="opp_user2@snowflake.example","default_warehouse"="MARKETING_SMALL_WH_MOD_06","default_role"="MARKETING"},
     "opp_USER3" : {"first_name" = "opp","last_name"="user3","email"="opp_user3@snowflake.example"}
   }

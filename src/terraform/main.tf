@@ -113,7 +113,7 @@ module "testerrole" {
  users = [
   module.ALL_USERS_opp.USERS.opp_USER1.name,
   module.ALL_USERS_opp.USERS.opp_USER2.name,
-  module.ALL_USERS_opp.USERS.opp_USER3.name
+  #module.ALL_USERS_opp.USERS.opp_USER3.name
  ]
 }
 

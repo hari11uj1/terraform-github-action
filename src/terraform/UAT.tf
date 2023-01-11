@@ -55,7 +55,7 @@ module "UAT_ROLES" {
   module.ALL_USERS_UAT.USERS.UAT_USER2.name,
   module.ALL_USERS_UAT.USERS.UAT_USER3.name  
  ]
-}
+}*/
 
 
 
@@ -64,8 +64,8 @@ module "WAREHOUSE_UAT_WH03" {
   warehouse_name    = "WAREHOUSE_UAT_WH03"
   warehouse_size    = "SMALL"
   roles = {
-    "OWNERSHIP" = ["SYSADMIN","UAT_ROLES"],
-    "USAGE" = ["SYSADMIN","UAT_ROLES"]
+    "OWNERSHIP" = ["SYSADMIN"],
+    "USAGE" = ["SYSADMIN","DB_ADMIN"]
   }
   with_grant_option = false
 }
@@ -78,19 +78,19 @@ module "DATABASE_UAT_DB03" {
   db_data_retention_time_in_days = 1
   db_role_grants = {
     "OWNERSHIP" = ["SYSADMIN"],
-    "USAGE" = ["UAT_ROLES","SYSADMIN"]
+    "USAGE" = ["DB_ADMIN","SYSADMIN"]
   }
   schemas = ["STAGE_SCHEMA","TARGET_SCHEMA"]
   schema_grants = {
    "STAGE_SCHEMA OWNERSHIP" = {"roles"= ["SYSADMIN"]},
-   "STAGE_SCHEMA USAGE" = {"roles"= ["UAT_ROLES","SYSADMIN"]},
+   "STAGE_SCHEMA USAGE" = {"roles"= ["DB_ADMIN","SYSADMIN"]},
    "TARGET_SCHEMA OWNERSHIP" = {"roles"= ["SYSADMIN"]},
-   "TARGET_SCHEMA USAGE"= {"roles"= ["UAT_ROLES","SYSADMIN"]}
+   "TARGET_SCHEMA USAGE"= {"roles"= ["DB_ADMIN","SYSADMIN"]}
   }
   
 }
 
 output "DATABASE_UAT_DB03" {
   value = module.DATABASE_UAT_DB03
-}*/
+}
 

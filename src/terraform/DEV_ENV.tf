@@ -26,7 +26,9 @@ module "DATA_VIZ" {
  users = [
   module.ALL_USERS_DEV_VIZ.USERS.DEV_USER04.name,
   module.ALL_USERS_DEV_VIZ.USERS.DEV_USER05.name,
-  module.ALL_USERS_DEV_VIZ.USERS.VIZ_USER01.name  
+  module.ALL_USERS_DEV_VIZ.USERS.VIZ_USER01.name,
+  module.ALL_USERS_DEV_VIZ.USERS.VIZ_USER02.name, 
+ 
  ]
 }
 

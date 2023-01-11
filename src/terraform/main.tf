@@ -110,7 +110,7 @@ module "testerrole" {
  name = "testerrole"
  comment = "a role for testers inc"
  role_name = ["SECURITYADMIN","MARKETING"]
- users = module.ALL_USERS_opp
+ users = module.ALL_USERS_opp.USERS
 }
 
 output "MARKETING_DB" {

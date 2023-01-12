@@ -38,7 +38,7 @@ module "WAREHOUSE_DEV_WH05" {
   warehouse_name    = "WAREHOUSE_DEV_WH05"
   warehouse_size    = "SMALL"
   roles = {
-    "OWNERSHIP" = ["DATA_ANALYST"],
+    "OWNERSHIP" = ["DB_ADMIN"],
     "USAGE" = ["DATA_ANALYST","DATA_VIZ"]
   }
   with_grant_option = false
@@ -51,14 +51,14 @@ module "DATABASE_DEV_DB05" {
   db_comment = "DATABASE FOR DEV_ENV_DB04"
   db_data_retention_time_in_days = 1
   db_role_grants = {
-    "OWNERSHIP" = ["DATA_ANALYST"],
+    "OWNERSHIP" = ["DB_ADMIN"],
     "USAGE" = ["DATA_ANALYST","DATA_VIZ"]
   }
   schemas = ["STAGE_SCHEMA","TARGET_SCHEMA",]
   schema_grants = {
-   "STAGE_SCHEMA OWNERSHIP" = {"roles"= ["DATA_ANALYST"]},
+   "STAGE_SCHEMA OWNERSHIP" = {"roles"= ["DB_ADMIN"]},
    "STAGE_SCHEMA USAGE" = {"roles"= ["DATA_ANALYST","DATA_VIZ"]},
-   "TARGET_SCHEMA OWNERSHIP" = {"roles"= ["DATA_ANALYST"]},
+   "TARGET_SCHEMA OWNERSHIP" = {"roles"= ["DB_ADMIN"]},
    "TARGET_SCHEMA USAGE"= {"roles"= ["DATA_ANALYST","DATA_VIZ"]}
   }
   

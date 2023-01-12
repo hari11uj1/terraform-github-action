@@ -31,7 +31,7 @@ module "WAREHOUSE_PROD_WH02" {
   warehouse_name    = "WAREHOUSE_PROD_WH02"
   warehouse_size    = "SMALL"
   roles = {
-    "OWNERSHIP" = ["DATA_ENGG"],
+    "OWNERSHIP" = ["DB_ADMIN"],
     "USAGE" = ["DATA_ENGG","DATA_LOADER"]
   }
   with_grant_option = false
@@ -44,14 +44,14 @@ module "DATABASE_PROD_DB02" {
   db_comment = "DATABASE FOR PROD_ENV_DB02"
   db_data_retention_time_in_days = 1
   db_role_grants = {
-    "OWNERSHIP" = ["DATA_ENGG"],
+    "OWNERSHIP" = ["DB_ADMIN"],
     "USAGE" = ["DATA_ENGG","DATA_LOADER"]
   }
   schemas = ["STAGE_SCHEMA","TARGET_SCHEMA"]
   schema_grants = {
-   "STAGE_SCHEMA OWNERSHIP" = {"roles"= ["DATA_ENGG"]},
+   "STAGE_SCHEMA OWNERSHIP" = {"roles"= ["DB_ADMIN"]},
    "STAGE_SCHEMA USAGE" = {"roles"= ["DATA_ENGG","DATA_LOADER"]},
-   "TARGET_SCHEMA OWNERSHIP" = {"roles"= ["DATA_ENGG"]},
+   "TARGET_SCHEMA OWNERSHIP" = {"roles"= ["DB_ADMIN"]},
    "TARGET_SCHEMA USAGE"= {"roles"= ["DATA_ENGG","DATA_LOADER"]},
   }
   

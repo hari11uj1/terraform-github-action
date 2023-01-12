@@ -79,8 +79,6 @@ module "ALL_USERS_DEV" {
   }
 
 }
-
-
 output "ALL_USERS_DEV" {
   value = module.ALL_USERS_DEV
   sensitive = true

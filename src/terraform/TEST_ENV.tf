@@ -27,7 +27,7 @@ module "TEST_ROLES" {
  ]
 }*/
 
-module "WAREHOUSE_DEV_WH04" {
+/*module "WAREHOUSE_DEV_WH04" {
   source            = "./warehouse"
   warehouse_name    = "WAREHOUSE_DEV_WH04"
   warehouse_size    = "SMALL"
@@ -63,4 +63,4 @@ module "DATABASE_DEV_DB04" {
 output "DATABASE_DEV_DB04" {
   value = module.DATABASE_DEV_DB04
 }
-
+*/

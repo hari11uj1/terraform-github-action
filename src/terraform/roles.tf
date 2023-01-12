@@ -61,3 +61,12 @@ module "DATA_VIZ" {
  ]
 }
 
+
+module "DB_ADMIN1" {
+ source = "./roles"
+ name = "DB_ADMIN1"
+ comment = "a role for SYSADMIN inc"
+ role_name = ["SYSADMIN"]
+ users = []
+}
+

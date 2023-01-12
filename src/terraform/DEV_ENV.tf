@@ -68,3 +68,42 @@ output "DATABASE_DEV_DB05" {
   value = module.DATABASE_DEV_DB05
 }
 
+module "WAREHOUSE_DEV_WH04" {
+  source            = "./warehouse"
+  warehouse_name    = "WAREHOUSE_DEV_WH04"
+  warehouse_size    = "SMALL"
+  roles = {
+    "OWNERSHIP" = ["DB_ADMIN"],
+    "USAGE" = ["DB_ADMIN","DATA_ANALYST"]
+  }
+  with_grant_option = false
+}
+
+
+
+
+module "DATABASE_DEV_DB04" {
+  source = "./database01"
+  db_name = "DATABASE_DEV_DB04"
+  db_comment = "DATABASE FOR TEST_ENV_DB04"
+  db_data_retention_time_in_days = 1
+  db_role_grants = {
+    "OWNERSHIP" = ["DB_ADMIN"],
+    "USAGE" = ["DB_ADMIN","DATA_ANALYST"]
+  }
+  schemas = ["STAGE_SCHEMA","TARGET_SCHEMA"]
+  schema_grants = {
+   "STAGE_SCHEMA OWNERSHIP" = {"roles"= ["DB_ADMIN"]},
+   "STAGE_SCHEMA USAGE" = {"roles"= ["DB_ADMIN","DATA_ANALYST"]},
+   "TARGET_SCHEMA OWNERSHIP" = {"roles"= ["DB_ADMIN"]},
+   "TARGET_SCHEMA USAGE"= {"roles"= ["DB_ADMIN","DATA_ANALYST"]},
+  }
+  
+}
+
+output "DATABASE_DEV_DB04" {
+  value = module.DATABASE_DEV_DB04
+}
+
+
+

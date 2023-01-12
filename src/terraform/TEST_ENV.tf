@@ -1,40 +1,11 @@
-/*terraform {
-  required_providers {
-    snowflake = {
-      source  = "Snowflake-Labs/snowflake"
-      version = "0.39.0"
-    }
-  }
-}
-
-terraform {
-  backend "remote" {
-    organization = "SNOWFLAKE_TERRAFORM_INTIGRATION"
-
-    workspaces {
-      name = "SNOWFLAKE_ENV"
-    }
-  }
-}
-
-provider "snowflake" {
-  account = var.snowflake_account
-  # region = "your-region-here" # fill-in only if required
-  username = var.snowflake_username
-  password = var.snowflake_password # do not use, we'll set an env var instead
-  role     = var.snowflake_role
-} */
-  
-
-#users for test env
-
-module "ALL_USERS_TEST" {
+/*module "ALL_USERS_TEST" {
   source = "./users"
 
   user_maps = {
 
     "TEST_USER001" : {"first_name" = "test","last_name"="user1","email"="user@snowflake.example","default_warehouse"="WAREHOUSE_DEV_WH04","default_role"="DATA_ANALYST"},
     "TEST_USER002" : {"first_name" = "test","last_name"="user2","email"="user2@snowflake.example","default_warehouse"="WAREHOUSE_DEV_WH04","default_role"="DATA_ANALYST"},
+    "TEST_USER003" : {"first_name" = "test","last_name"="user3","email"="user3@snowflake.example","default_warehouse"="WAREHOUSE_DEV_WH04","default_role"="DATA_ANALYST"},
     "TEST_USER003" : {"first_name" = "test","last_name"="user3","email"="user3@snowflake.example","default_warehouse"="WAREHOUSE_DEV_WH04","default_role"="DATA_ANALYST"}
   }
 }
@@ -54,7 +25,7 @@ module "TEST_ROLES" {
   module.ALL_USERS_TEST.USERS.TEST_USER002.name,
   module.ALL_USERS_TEST.USERS.TEST_USER003.name  
  ]
-}
+}*/
 
 module "WAREHOUSE_DEV_WH04" {
   source            = "./warehouse"

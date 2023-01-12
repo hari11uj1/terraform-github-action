@@ -1,6 +1,6 @@
 # USERS FOR PROD ENV
 
-module "ALL_USERS_DEV_VIZ" {
+/*module "ALL_USERS_DEV_VIZ" {
   source = "./users"
 
   user_maps = {
@@ -30,7 +30,7 @@ module "DATA_VIZ" {
   module.ALL_USERS_DEV_VIZ.USERS.VIZ_USER02.name, 
  
  ]
-}
+}*/
 
 
 module "WAREHOUSE_DEV_WH05" {

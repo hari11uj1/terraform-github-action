@@ -103,4 +103,14 @@ resource "snowflake_user" "DEV_USER_MNUL" {
   must_change_password = true
 }
 
+module "DATA_ANALYST1" {
+ source = "./roles"
+ name = "DATA_ANALYST1"
+ comment = "a role for SYSADMIN inc"
+ role_name = ["DB_ADMIN1"]
+ users = [snowflake_user.DEV_USER_MNUL.name]
+}
+
+
+
 

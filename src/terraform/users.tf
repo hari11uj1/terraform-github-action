@@ -87,3 +87,20 @@ output "ALL_USERS_DEV" {
 }
 
 
+resource "snowflake_user" "DEV_USER_MNUL" {
+  name         = "Snowflake_User1"
+  login_name   = "snowflake_user"
+  comment      = "A user of snowflake."
+  password     = "secret"
+  disabled     = false
+  display_name = "Snowflake User"
+  email        = "user@snowflake.example"
+  first_name   = "Snowflake"
+  last_name    = "User"
+  #default_warehouse       = "warehouse"
+  #default_secondary_roles = ["ALL"]
+  default_role            = "PUBLIC"
+  must_change_password = true
+}
+
+

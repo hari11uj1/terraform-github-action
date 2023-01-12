@@ -70,3 +70,11 @@ module "DB_ADMIN1" {
  users = []
 }
 
+module "DATA_ENGG1" {
+ source = "./roles"
+ name = "DATA_ENGG1"
+ comment = "a role for SYSADMIN inc"
+ role_name = ["DB_ADMIN1"]
+ users = []
+}
+

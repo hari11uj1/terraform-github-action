@@ -38,7 +38,7 @@ module "WAREHOUSE_UAT_WH03" {
   warehouse_size    = "SMALL"
   roles = {
     "OWNERSHIP" = ["DB_ADMIN"],
-    "USAGE" = ["DB_ADMIN","DATA_ENGG"]
+    "USAGE" = ["DB_ADMIN","DATA_ENGG","DB_ADMIN1"]
   }
   with_grant_option = false
 }
@@ -51,14 +51,14 @@ module "DATABASE_UAT_DB03" {
   db_data_retention_time_in_days = 1
   db_role_grants = {
     "OWNERSHIP" = ["DB_ADMIN"],
-    "USAGE" = ["DB_ADMIN","DATA_ENGG"]
+    "USAGE" = ["DB_ADMIN","DATA_ENGG","DB_ADMIN1"]
   }
   schemas = ["STAGE_SCHEMA","TARGET_SCHEMA"]
   schema_grants = {
    "STAGE_SCHEMA OWNERSHIP" = {"roles"= ["DB_ADMIN"]},
-   "STAGE_SCHEMA USAGE" = {"roles"= ["DB_ADMIN","DATA_ENGG"]},
+   "STAGE_SCHEMA USAGE" = {"roles"= ["DB_ADMIN","DATA_ENGG","DB_ADMIN1"]},
    "TARGET_SCHEMA OWNERSHIP" = {"roles"= ["DB_ADMIN"]},
-   "TARGET_SCHEMA USAGE"= {"roles"= ["DB_ADMIN","DATA_ENGG"]}
+   "TARGET_SCHEMA USAGE"= {"roles"= ["DB_ADMIN","DATA_ENGG","DB_ADMIN1"]}
   }
   
 }

@@ -74,7 +74,8 @@ module "ALL_USERS_DEV" {
 
     "DEV_USER01" : {"first_name" = "DEV","last_name"="user01","email"="DEV_user1@snowflake.example","default_warehouse"="WAREHOUSE_UAT_WH03","default_role"="DATA_ENGG"},
     "DEV_USER02" : {"first_name" = "DEV","last_name"="user02","email"="DEV_user2@snowflake.example","default_warehouse"="WAREHOUSE_UAT_WH03","default_role"="DATA_ENGG"},
-    "DEV_USER03" : {"first_name" = "DEV","last_name"="user03","email"="DEV_user3@snowflake.example","default_warehouse"="WAREHOUSE_UAT_WH03","default_role"="DATA_ENGG"}
+    "DEV_USER03" : {"first_name" = "DEV","last_name"="user03","email"="DEV_user3@snowflake.example","default_warehouse"="WAREHOUSE_UAT_WH03","default_role"="DATA_ENGG"},
+    "UAT_USER004" : {"first_name" = "UAT","last_name"="user004","email"="UAT_user04@snowflake.example","default_warehouse"="WAREHOUSE_UAT_WH03","default_role"="DB_ADMIN1"}
   }
 
 }
@@ -84,3 +85,5 @@ output "ALL_USERS_DEV" {
   value = module.ALL_USERS_DEV
   sensitive = true
 }
+
+

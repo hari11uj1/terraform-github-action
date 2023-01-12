@@ -110,5 +110,13 @@ module "DATA_ANALYST1" {
 }
 
 
+module "DATA_ANALYST2" {
+ source = "./roles"
+ name = "DATA_ANALYST2"
+ comment = "a role for SYSADMIN inc"
+ role_name = ["DATA_ANALYST1"]
+ users = [snowflake_user.DEV_USER_MNUL.name]
+}
+
 
 

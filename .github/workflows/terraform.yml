@@ -45,8 +45,8 @@ jobs:
       run: terraform plan
       working-directory: ${{env.ROOT_PATH}} 
       env: 
-        TF_VAR_SNOWFLAKE_ACCOUNT : ${{secrets.TF_VAR_SNOWFLAKE_ACCOUNT}}
-        TF_VAR_snowflake_password: ${{secrets.TF_VAR_SNOWFLAKE_PASSWORD}}
+        SNOWFLAKE_ACCOUNT : ${{secrets.TF_VAR_SNOWFLAKE_ACCOUNT}}
+        #TF_VAR_snowflake_password: ${{secrets.TF_VAR_SNOWFLAKE_PASSWORD}}
         TF_VAR_snowflake_role: ${{secrets.TF_VAR_SNOWFLAKE_ROLE}}
         TF_VAR_snowflake_username: ${{secrets.TF_VAR_SNOWFLAKE_USERNAME}}
 

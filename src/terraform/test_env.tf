@@ -19,7 +19,7 @@ terraform {
 
 provider "snowflake" {
 
-  account = "hy80966"
+  #account = "hy80966"
   region  = "AZURE_CENTRALINDIA"
   username = "HARISHKUMAR2"
 

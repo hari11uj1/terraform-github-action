@@ -21,7 +21,7 @@ provider "snowflake" {
 
   #account = "hy80966"
   #region  = "AZURE_CENTRALINDIA"
-  username = "HARISHKUMAR2"
+  #username = "HARISHKUMAR2"
 
   #features {}
  /* account = var.snowflake_account

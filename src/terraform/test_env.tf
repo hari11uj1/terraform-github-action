@@ -17,15 +17,18 @@ terraform {
   }
 }
 
-/*provider "snowflake" {
+provider "snowflake" {
+
+  account = "hy80966"
+  region  = "AZURE_CENTRALINDIA"
 
   #features {}
  /* account = var.snowflake_account
   # region = "your-region-here" # fill-in only if required
   username = var.snowflake_username
   password = var.snowflake_password # do not use, we'll set an env var instead
-  role     = var.snowflake_role 
-} */
+  role     = var.snowflake_role */
+} 
 
   
 

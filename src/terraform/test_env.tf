@@ -92,6 +92,17 @@ module "DATABASE_TEST_DB01" {
   
 }
 
+module "WAREHOUSE_TEST_WH0011" {
+  source            = "./warehouse"
+  warehouse_name    = "WAREHOUSE_TEST_WH0011"
+  warehouse_size    = "SMALL"
+  roles = {
+    "OWNERSHIP" = ["SYSADMIN"],
+    "USAGE" = ["SYSADMIN","DB_ADMIN"]
+  }
+  with_grant_option = false
+}
+
 output "DATABASE_TEST_DB01" {
   value = module.DATABASE_TEST_DB01
 }

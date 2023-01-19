@@ -18,7 +18,7 @@ terraform {
 }
 
 provider "snowflake" {
-
+ username = var.snowflake_username
 } 
 
   

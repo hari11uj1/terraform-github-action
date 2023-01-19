@@ -2,7 +2,7 @@
 module "ALL_USERS_DEV01" {
   source = "./users"
 
-  depends_on = [module.snowflake_WAREHOUSE_WH001.WAREHOUSE.name]
+  depends_on = [module.snowflake_WAREHOUSE_WH001.WAREHOUSE]
 
   user_maps = {
 

@@ -38,6 +38,11 @@ jobs:
     - name: Terraform Init
       run: terraform init
       working-directory: ${{env.ROOT_PATH}}
+      env: 
+        SNOWFLAKE_ACCOUNT : ${{secrets.TF_VAR_SNOWFLAKE_ACCOUNT}}
+        SNOWFLAKE_password: ${{secrets.TF_VAR_SNOWFLAKE_PASSWORD}}
+        TF_VAR_snowflake_role: ${{secrets.TF_VAR_SNOWFLAKE_ROLE}}
+        SNOWFLAKE_USER: ${{secrets.TF_VAR_SNOWFLAKE_USERNAME}}
 
 
     # Generates an execution plan for Terraform
@@ -48,7 +53,7 @@ jobs:
         SNOWFLAKE_ACCOUNT : ${{secrets.TF_VAR_SNOWFLAKE_ACCOUNT}}
         SNOWFLAKE_password: ${{secrets.TF_VAR_SNOWFLAKE_PASSWORD}}
         TF_VAR_snowflake_role: ${{secrets.TF_VAR_SNOWFLAKE_ROLE}}
-        #SNOWFLAKE_USER: ${{secrets.TF_VAR_SNOWFLAKE_USERNAME}}
+        SNOWFLAKE_USER: ${{secrets.TF_VAR_SNOWFLAKE_USERNAME}}
 
   terraform_apply:
     name: 'Terraform apply'

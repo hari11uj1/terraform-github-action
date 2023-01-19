@@ -30,11 +30,6 @@ provider "snowflake" {
 
 provider "azurerm" {
   features {}
-
-  subscription_id   = "f2ca2eec-9923-4431-adc8-9bb426060e2e"
-  tenant_id         = "6d0bcd9c-6b7d-4bef-ab75-53911e0b2109"
-  client_id         = "e3bbbc2c-da9f-4609-95e4-26237ee1b568"
-  client_secret     = ".2T8Q~eK7Aj081EAXhg0ZmvuUel5w6QCqJ6uGbPs"
 }
 
 

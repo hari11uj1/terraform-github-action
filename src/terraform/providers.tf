@@ -19,6 +19,7 @@ terraform {
 
 provider "snowflake" {
  username = "HARISHKUMAR2"
+ snowflake_account  = "hy80966.central-india.azure"
 } 
 
   

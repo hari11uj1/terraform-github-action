@@ -28,13 +28,15 @@ provider "snowflake" {
 } 
 
 
-/*provider "azurerm" {
+provider "azurerm" {
   features {}
+  tenant_id         = "6d0bcd9c-6b7d-4bef-ab75-53911e0b2109"
+  
 }
 
 
 
-data "azurerm_key_vault" "azvault" {
+/*data "azurerm_key_vault" "azvault" {
   name                = "CICDTestKVRaj"
   resource_group_name = "CICD_Kroger_Raj_RG"
 

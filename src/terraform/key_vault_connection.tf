@@ -50,6 +50,6 @@ data "azurerm_key_vault_secret" "secert" {
   key_vault_id = data.azurerm_key_vault.azvault.id
 }
 
-output "secret_value" {
+/*output "secret_value" {
   value = data.azurerm_key_vault_secret.secret.value
-}
+}*/

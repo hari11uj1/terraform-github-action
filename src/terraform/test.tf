@@ -1,5 +1,5 @@
 # creating users asper module or templet which exist users_module
-module "ALL_USERS_DEV" {
+module "ALL_USERS_DEV01" {
   source = "./users"
 
   depends_on = [module.snowflake_WAREHOUSE_WH001.WAREHOUSE.name]
@@ -15,60 +15,60 @@ module "ALL_USERS_DEV" {
   }
 }
 
-output "ALL_USERS_DEV_VIZ" {
-  value = module.ALL_USERS_DEV_VIZ
+output "ALL_USERS_DEV01" {
+  value = module.ALL_USERS_DEV01
   sensitive = true
 }
 
 # will create a role and asigins to users
 
-module "DB_ADMIN" {
+module "DB_ADMIN1" {
  source = "./roles"
- name = "DB_ADMIN"
+ name = "DB_ADMIN1"
  comment = "a role for SYSADMIN inc"
  role_name = ["SYSADMIN"]
  users = [
-  module.ALL_USERS_DEV.USERS.snowflake_user1.name, 
+  module.ALL_USERS_DEV01.USERS.snowflake_user1.name, 
  ]
 }
 
-module "DATA_ENGG" {
+module "DATA_ENGG1" {
  source = "./roles"
- name = "DATA_ENGG"
+ name = "DATA_ENGG1"
  comment = "a role for SYSADMIN inc"
- role_name = ["DB_ADMIN"]
+ role_name = ["DB_ADMIN1"]
  users = [
-  module.ALL_USERS_DEV.USERS.snowflake_user2.name,
+  module.ALL_USERS_DEV01.USERS.snowflake_user2.name,
  ]
 }
 
-module "DATA_LOADER" {
+module "DATA_LOADER1" {
  source = "./roles"
- name = "DATA_LOADER"
+ name = "DATA_LOADER1"
  comment = "a role for SYSADMIN inc"
- role_name = ["DATA_ENGG"]
+ role_name = ["DATA_ENGG1"]
  users = [
-  module.ALL_USERS_DEV.USERS.snowflake_user3.name, 
+  module.ALL_USERS_DEV01.USERS.snowflake_user3.name, 
  ]
 }
 
-module "DATA_ANALYST" {
+module "DATA_ANALYST1" {
  source = "./roles"
- name = "DATA_ANALYST"
+ name = "DATA_ANALYST1"
  comment = "a role for SYSADMIN inc"
- role_name = ["DB_ADMIN"]
+ role_name = ["DB_ADMIN1"]
  users = [
-  module.ALL_USERS_DEV.USERS.snowflake_user4.name, 
+  module.ALL_USERS_DEV01.USERS.snowflake_user4.name, 
  ]
 }
 
-module "DATA_VIZ" {
+module "DATA_VIZ1" {
  source = "./roles"
- name = "DATA_VIZ"
+ name = "DATA_VIZ1"
  comment = "a role for SYSADMIN inc"
- role_name = ["DATA_ANALYST"]
+ role_name = ["DATA_ANALYST1"]
  users = [
-  module.ALL_USERS_DEV.USERS.snowflake_user5.name,
+  module.ALL_USERS_DEV01.USERS.snowflake_user5.name,
  ]
 }
   

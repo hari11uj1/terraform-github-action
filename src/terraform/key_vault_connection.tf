@@ -27,6 +27,7 @@ provider "snowflake" {
  role = var.snowflake_role
 } 
 
+
 provider "azurerm" {
   features {}
 

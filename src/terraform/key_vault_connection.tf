@@ -36,13 +36,13 @@ provider "azurerm" {
 
 
 
-/*data "azurerm_key_vault" "azvault" {
+data "azurerm_key_vault" "azvault" {
   name                = "CICDTestKVRaj"
   resource_group_name = "CICD_Kroger_Raj_RG"
 
 }
 
-data "azurerm_key_vault_secret" "secert" {
+/*data "azurerm_key_vault_secret" "secert" {
   name         = "tf-snowflake-account"
   key_vault_id = data.azurerm_key_vault.azvault.id
 }

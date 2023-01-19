@@ -28,7 +28,7 @@ provider "snowflake" {
 } 
 
 
-provider "azurerm" {
+/*provider "azurerm" {
   features {}
 }
 

@@ -10,7 +10,7 @@ variable "snowflake_role" {
   type = string
 }
 
-variable "snowflake_password" {
+/*variable "snowflake_password" {
   type = string
-}
+}*/
 

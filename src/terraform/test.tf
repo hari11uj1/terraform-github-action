@@ -6,11 +6,11 @@ module "ALL_USERS_DEV01" {
 
   user_maps = {
 
-    "snowflake_user1" : {"first_name" = "snowflake_DEV","last_name"="user1","email"="snowflake_DEV_user1@snowflake.example","default_warehouse"="snowflake_WAREHOUSE_WH001","default_role"="DB_ADMIN1"},
-    "snowflake_user2" : {"first_name" = "snowflake_DEV","last_name"="user2","email"="snowflake_DEV_user2@snowflake.example","default_warehouse"="snowflake_WAREHOUSE_WH001","default_role"="DATA_ENGG1"},
-    "snowflake_user3" : {"first_name" = "snowflake_DEV","last_name"="user3","email"="snowflake_DEV_user3@snowflake.example","default_warehouse"="snowflake_WAREHOUSE_WH001","default_role"="DATA_LOADER1"},
-    "snowflake_user4" : {"first_name" = "snowflake_DEV","last_name"="user4","email"="snowflake_DEV_user4@snowflake.example","default_warehouse"="snowflake_WAREHOUSE_WH001","default_role"="DATA_ANALYST1"},
-    "snowflake_user5" : {"first_name" = "snowflake_DEV","last_name"="user4","email"="snowflake_DEV_user5@snowflake.example","default_warehouse"="snowflake_WAREHOUSE_WH001","default_role"="DATA_VIZ1"}
+    "snowflake_user1" : {"first_name" = "snowflake_DEV","last_name"="user1","email"="snowflake_DEV_user1@snowflake.example","default_warehouse"="snowflake_WAREHOUSE_WH001","default_role"="DB_ADMIN01"},
+    "snowflake_user2" : {"first_name" = "snowflake_DEV","last_name"="user2","email"="snowflake_DEV_user2@snowflake.example","default_warehouse"="snowflake_WAREHOUSE_WH001","default_role"="DATA_ENGG01"},
+    "snowflake_user3" : {"first_name" = "snowflake_DEV","last_name"="user3","email"="snowflake_DEV_user3@snowflake.example","default_warehouse"="snowflake_WAREHOUSE_WH001","default_role"="DATA_LOADER01"},
+    "snowflake_user4" : {"first_name" = "snowflake_DEV","last_name"="user4","email"="snowflake_DEV_user4@snowflake.example","default_warehouse"="snowflake_WAREHOUSE_WH001","default_role"="DATA_ANALYST01"},
+    "snowflake_user5" : {"first_name" = "snowflake_DEV","last_name"="user4","email"="snowflake_DEV_user5@snowflake.example","default_warehouse"="snowflake_WAREHOUSE_WH001","default_role"="DATA_VIZ01"}
 
   }
 }
@@ -22,9 +22,9 @@ output "ALL_USERS_DEV01" {
 
 # will create a role and asigins to users
 
-module "DB_ADMIN1" {
+module "DB_ADMIN01" {
  source = "./roles"
- name = "DB_ADMIN1"
+ name = "DB_ADMIN01"
  comment = "a role for SYSADMIN inc"
  role_name = ["SYSADMIN"]
  users = [
@@ -32,41 +32,41 @@ module "DB_ADMIN1" {
  ]
 }
 
-module "DATA_ENGG1" {
+module "DATA_ENGG01" {
  source = "./roles"
- name = "DATA_ENGG1"
+ name = "DATA_ENGG01"
  comment = "a role for SYSADMIN inc"
- role_name = ["DB_ADMIN1"]
+ role_name = ["DB_ADMIN01"]
  users = [
   module.ALL_USERS_DEV01.USERS.snowflake_user2.name,
  ]
 }
 
-module "DATA_LOADER1" {
+module "DATA_LOADER01" {
  source = "./roles"
- name = "DATA_LOADER1"
+ name = "DATA_LOADER01"
  comment = "a role for SYSADMIN inc"
- role_name = ["DATA_ENGG1"]
+ role_name = ["DATA_ENGG01"]
  users = [
   module.ALL_USERS_DEV01.USERS.snowflake_user3.name, 
  ]
 }
 
-module "DATA_ANALYST1" {
+module "DATA_ANALYST01" {
  source = "./roles"
- name = "DATA_ANALYST1"
+ name = "DATA_ANALYST01"
  comment = "a role for SYSADMIN inc"
- role_name = ["DB_ADMIN1"]
+ role_name = ["DB_ADMIN01"]
  users = [
   module.ALL_USERS_DEV01.USERS.snowflake_user4.name, 
  ]
 }
 
-module "DATA_VIZ1" {
+module "DATA_VIZ01" {
  source = "./roles"
- name = "DATA_VIZ1"
+ name = "DATA_VIZ01"
  comment = "a role for SYSADMIN inc"
- role_name = ["DATA_ANALYST1"]
+ role_name = ["DATA_ANALYST01"]
  users = [
   module.ALL_USERS_DEV01.USERS.snowflake_user5.name,
  ]

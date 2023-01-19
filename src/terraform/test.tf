@@ -79,7 +79,7 @@ module "snowflake_WAREHOUSE_WH001" {
   warehouse_size    = "SMALL"
   roles = {
     "OWNERSHIP" = ["SYSADMIN"],
-    "USAGE" = ["SYSADMIN","DB_ADMIN1","DATA_ENGG1","DATA_ANALYST1","DATA_LOADER1","DATA_VIZ1"]
+    "USAGE" = ["SYSADMIN","DB_ADMIN01","DATA_ENGG01","DATA_ANALYST01","DATA_LOADER01","DATA_VIZ01"]
   }
   with_grant_option = false
   depends_on = [
@@ -95,14 +95,14 @@ module "DATABASE_DEV_DB001" {
   db_data_retention_time_in_days = 1
   db_role_grants = {
     "OWNERSHIP" = ["SYSADMIN"],
-    "USAGE" = ["SYSADMIN","DB_ADMIN1","DATA_ENGG1","DATA_ANALYST1","DATA_LOADER1","DATA_VIZ1"]
+    "USAGE" = ["SYSADMIN","DB_ADMIN01","DATA_ENGG01","DATA_ANALYST01","DATA_LOADER01","DATA_VIZ01"]
   }
   schemas = ["STAGE_SCHEMA","TARGET_SCHEMA"]
   schema_grants = {
    "STAGE_SCHEMA OWNERSHIP" = {"roles"= ["SYSADMIN"]},
-   "STAGE_SCHEMA USAGE" = {"roles"= ["SYSADMIN","DB_ADMIN"]},
+   "STAGE_SCHEMA USAGE" = {"roles"= ["SYSADMIN","DB_ADMIN01"]},
    "TARGET_SCHEMA OWNERSHIP" = {"roles"= ["SYSADMIN"]},
-   "TARGET_SCHEMA USAGE"= {"roles"= ["SYSADMIN","DB_ADMIN"]},
+   "TARGET_SCHEMA USAGE"= {"roles"= ["SYSADMIN","DB_ADMIN01"]},
   }
   
 }

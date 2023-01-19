@@ -1,4 +1,4 @@
-/*variable "snowflake_username" {
+variable "snowflake_username" {
   type = string
 }
 
@@ -12,5 +12,5 @@ variable "snowflake_role" {
 
 variable "snowflake_password" {
   type = string
-}*/
+}
 

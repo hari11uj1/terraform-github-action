@@ -10,6 +10,7 @@ variable "snowflake_username" {
   type = string
 }
 
+
 /*variable "snowflake_password" {
   type = string
 }*/

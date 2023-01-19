@@ -19,7 +19,6 @@ terraform {
 
 provider "snowflake" {
 
-  role     = var.snowflake_role 
 } 
 
   
